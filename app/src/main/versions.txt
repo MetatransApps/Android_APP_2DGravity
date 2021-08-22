@@ -1,0 +1,14 @@
+1.0.4 (21.08.2021)
+Technical debt: Migration of the development environment, from Eclipse to Android Studio
+
+1.0.3
+Compliance with Google Play Policies - removal of Appbrain and Millennial Media ads SDKs
+
+1.0.2
+Bug fixing
+
+1.0.1
+Bug fixing
+
+1.0.0
+Initial version
