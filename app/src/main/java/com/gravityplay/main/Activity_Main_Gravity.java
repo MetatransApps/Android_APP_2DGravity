@@ -33,8 +33,8 @@ public class Activity_Main_Gravity extends Activity_Main_Base2D implements IActi
 				current_adLoadFlow_Interstitial.resume();
 			}
 			
-		} catch(Exception e) {
-			e.printStackTrace();
+		} catch(Throwable t) {
+			t.printStackTrace();
 		}
 	}
 	
@@ -43,21 +43,21 @@ public class Activity_Main_Gravity extends Activity_Main_Base2D implements IActi
 	protected void onResume() {
 		
 		super.onResume();
-		
+
 		if (getInterstitialName() != null) {
-			
-			current_adLoadFlow_Interstitial = ((Application_Base_Ads)getApplication()).getAdsManager().getCachedFlow(getInterstitialName());
-			
+
+			current_adLoadFlow_Interstitial = ((Application_Base_Ads) getApplication()).getAdsManager().getCachedFlow(getInterstitialName());
+
 			if (current_adLoadFlow_Interstitial == null) {
-				
+
 				System.out.println("Activity_Main create Interstitial");
-				
-				current_adLoadFlow_Interstitial = ((Application_Base_Ads)getApplication()).getAdsManager().createFlow_Interstitial_Mixed(getInterstitialName());
-				((Application_Base_Ads)getApplication()).getAdsManager().putCachedFlow(getInterstitialName(), current_adLoadFlow_Interstitial);
+
+				current_adLoadFlow_Interstitial = ((Application_Base_Ads) getApplication()).getAdsManager().createFlow_Interstitial_Mixed(getInterstitialName());
+				((Application_Base_Ads) getApplication()).getAdsManager().putCachedFlow(getInterstitialName(), current_adLoadFlow_Interstitial);
 			} else {
-				
+
 				System.out.println("Activity_Main Interstitial EXISTS");
-				
+
 				//current_adLoadFlow_Interstitial.cleanCurrent();
 				current_adLoadFlow_Interstitial.pause();
 			}
