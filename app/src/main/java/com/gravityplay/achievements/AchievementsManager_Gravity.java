@@ -3,10 +3,11 @@ package com.gravityplay.achievements;
 
 import android.content.Context;
 
-import com.apps.mobile.android.commons.achievements.AchievementsManager_Base;
-import com.apps.mobile.android.commons.app.Application_Base;
-import com.apps.mobile.android.commons.cfg.achievements.IConfigurationAchievements;
-import com.apps.mobile.android.commons.ui.Toast_Base;
+import org.metatransapps.commons.achievements.AchievementsManager_Base;
+import org.metatransapps.commons.app.Application_Base;
+import org.metatransapps.commons.cfg.achievements.IConfigurationAchievements;
+import org.metatransapps.commons.ui.Toast_Base;
+
 import com.gravityplay.cfg.achievements.Config_Achievement_Invite3Friends;
 
 

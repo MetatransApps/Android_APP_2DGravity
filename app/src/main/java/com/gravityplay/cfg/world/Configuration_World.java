@@ -1,7 +1,8 @@
 package com.gravityplay.cfg.world;
 
 
-import com.apps.mobile.android.commons.app.Application_Base;
+import org.metatransapps.commons.app.Application_Base;
+
 import com.gravityplay.lib.R;
 
 

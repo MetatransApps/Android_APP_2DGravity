@@ -5,8 +5,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
-import com.apps.mobile.android.commons.cfg.colours.IConfigurationColours;
-import com.apps.mobile.android.commons.graphics2d.model.UserSettings;
+import org.metatransapps.commons.cfg.colours.IConfigurationColours;
+import org.metatransapps.commons.graphics2d.model.UserSettings;
+
 import com.gravityplay.cfg.world.ConfigurationUtils_Level;
 
 

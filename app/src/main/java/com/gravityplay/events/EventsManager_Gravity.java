@@ -3,18 +3,19 @@ package com.gravityplay.events;
 
 import java.util.concurrent.ExecutorService;
 
+import org.metatransapps.commons.achievements.IAchievementsManager;
+import org.metatransapps.commons.analytics.IAnalytics;
+import org.metatransapps.commons.app.Application_Base;
+import org.metatransapps.commons.cfg.achievements.IConfigurationAchievements;
+import org.metatransapps.commons.events.EventsManager_Base;
+import org.metatransapps.commons.events.api.IEvent_Base;
+import org.metatransapps.commons.graphics2d.model.UserSettings;
+import org.metatransapps.commons.model.GameData_Base;
+import org.metatransapps.commons.model.UserSettings_Base;
+
 import android.app.Activity;
 import android.content.Context;
 
-import com.apps.mobile.android.commons.achievements.IAchievementsManager;
-import com.apps.mobile.android.commons.analytics.IAnalytics;
-import com.apps.mobile.android.commons.app.Application_Base;
-import com.apps.mobile.android.commons.cfg.achievements.IConfigurationAchievements;
-import com.apps.mobile.android.commons.events.EventsManager_Base;
-import com.apps.mobile.android.commons.events.api.IEvent_Base;
-import com.apps.mobile.android.commons.graphics2d.model.UserSettings;
-import com.apps.mobile.android.commons.model.GameData_Base;
-import com.apps.mobile.android.commons.model.UserSettings_Base;
 import com.gravityplay.app.Application_Gravity;
 import com.gravityplay.model.GameData_Gravity;
 

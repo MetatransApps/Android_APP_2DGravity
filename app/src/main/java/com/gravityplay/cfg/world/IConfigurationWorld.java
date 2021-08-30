@@ -1,7 +1,7 @@
 package com.gravityplay.cfg.world;
 
 
-import com.apps.mobile.android.commons.cfg.difficulty.IConfigurationDifficulty;
+import org.metatransapps.commons.cfg.difficulty.IConfigurationDifficulty;
 
 
 public interface IConfigurationWorld extends IConfigurationDifficulty {

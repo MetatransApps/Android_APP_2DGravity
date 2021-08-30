@@ -3,15 +3,16 @@ package com.gravityplay.model.entities;
 
 import java.util.List;
 
+import org.metatransapps.commons.app.Application_Base;
+import org.metatransapps.commons.cfg.colours.ConfigurationUtils_Colours;
+import org.metatransapps.commons.graphics2d.model.World;
+import org.metatransapps.commons.graphics2d.model.entities.Entity2D_Ground;
+import org.metatransapps.commons.graphics2d.model.entities.Entity2D_Moving;
+import org.metatransapps.commons.graphics2d.model.entities.IEntity2D;
+
 import android.graphics.Canvas;
 import android.graphics.RectF;
 
-import com.apps.mobile.android.commons.app.Application_Base;
-import com.apps.mobile.android.commons.cfg.colours.ConfigurationUtils_Colours;
-import com.apps.mobile.android.commons.graphics2d.model.World;
-import com.apps.mobile.android.commons.graphics2d.model.entities.Entity2D_Ground;
-import com.apps.mobile.android.commons.graphics2d.model.entities.Entity2D_Moving;
-import com.apps.mobile.android.commons.graphics2d.model.entities.IEntity2D;
 import com.gravityplay.model.World_Gravity;
 
 

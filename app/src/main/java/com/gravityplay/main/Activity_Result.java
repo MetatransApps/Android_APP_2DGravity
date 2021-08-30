@@ -1,11 +1,12 @@
 package com.gravityplay.main;
 
 
-import com.apps.mobile.android.commons.ads.api.IAdsConfiguration;
-import com.apps.mobile.android.commons.graphics2d.app.Application_2D_Base;
-import com.apps.mobile.android.commons.graphics2d.main.Activity_Result_Base2D;
-import com.apps.mobile.android.commons.graphics2d.model.UserSettings;
-import com.apps.mobile.android.commons.main.View_Result;
+import org.metatransapps.commons.ads.api.IAdsConfiguration;
+import org.metatransapps.commons.graphics2d.app.Application_2D_Base;
+import org.metatransapps.commons.graphics2d.main.Activity_Result_Base2D;
+import org.metatransapps.commons.graphics2d.model.UserSettings;
+import org.metatransapps.commons.main.View_Result;
+
 import com.gravityplay.lib.R;
 import com.gravityplay.app.Application_Gravity;
 import com.gravityplay.model.GameData_Gravity;

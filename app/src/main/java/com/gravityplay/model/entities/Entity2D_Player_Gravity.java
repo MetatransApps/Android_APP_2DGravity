@@ -3,17 +3,18 @@ package com.gravityplay.model.entities;
 
 import java.util.List;
 
+import org.metatransapps.commons.app.Application_Base;
+import org.metatransapps.commons.app.Application_Base_Ads;
+import org.metatransapps.commons.graphics2d.app.Application_2D_Base;
+import org.metatransapps.commons.graphics2d.model.World;
+import org.metatransapps.commons.graphics2d.model.entities.Entity2D_Player;
+import org.metatransapps.commons.graphics2d.model.entities.IEntity2D;
+import org.metatransapps.commons.model.LevelResult_Base;
+
 import android.app.Activity;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 
-import com.apps.mobile.android.commons.app.Application_Base;
-import com.apps.mobile.android.commons.app.Application_Base_Ads;
-import com.apps.mobile.android.commons.graphics2d.app.Application_2D_Base;
-import com.apps.mobile.android.commons.graphics2d.model.World;
-import com.apps.mobile.android.commons.graphics2d.model.entities.Entity2D_Player;
-import com.apps.mobile.android.commons.graphics2d.model.entities.IEntity2D;
-import com.apps.mobile.android.commons.model.LevelResult_Base;
 import com.gravityplay.app.Application_Gravity;
 import com.gravityplay.main.Activity_Result;
 import com.gravityplay.model.GameData_Gravity;

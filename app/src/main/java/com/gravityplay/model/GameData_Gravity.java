@@ -1,7 +1,7 @@
 package com.gravityplay.model;
 
 
-public class GameData_Gravity extends com.apps.mobile.android.commons.graphics2d.model.GameData {
+public class GameData_Gravity extends org.metatransapps.commons.graphics2d.model.GameData {
 	
 	
 	private static final long serialVersionUID = -1112210300081303255L;

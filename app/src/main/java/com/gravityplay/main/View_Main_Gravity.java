@@ -8,12 +8,13 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.view.MotionEvent;
 
-import com.apps.mobile.android.commons.app.Application_Base;
-import com.apps.mobile.android.commons.graphics2d.app.Application_2D_Base;
-import com.apps.mobile.android.commons.graphics2d.main.Activity_Main_Base2D;
-import com.apps.mobile.android.commons.graphics2d.ui.View_Main_Base;
-import com.apps.mobile.android.commons.ui.TextArea;
-import com.apps.mobile.android.commons.ui.utils.ScreenUtils;
+import org.metatransapps.commons.app.Application_Base;
+import org.metatransapps.commons.graphics2d.app.Application_2D_Base;
+import org.metatransapps.commons.graphics2d.main.Activity_Main_Base2D;
+import org.metatransapps.commons.graphics2d.ui.View_Main_Base;
+import org.metatransapps.commons.ui.TextArea;
+import org.metatransapps.commons.ui.utils.ScreenUtils;
+
 import com.gravityplay.menu.Activity_Menu_Main;
 import com.gravityplay.model.GameData_Gravity;
 import com.gravityplay.model.World_Gravity;

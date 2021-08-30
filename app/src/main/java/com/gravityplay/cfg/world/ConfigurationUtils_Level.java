@@ -1,10 +1,10 @@
 package com.gravityplay.cfg.world;
 
 
-import com.apps.mobile.android.commons.cfg.ConfigurationUtils_Base;
-import com.apps.mobile.android.commons.cfg.IConfigurationEntry;
-import com.apps.mobile.android.commons.graphics2d.app.Application_2D_Base;
-import com.apps.mobile.android.commons.ui.utils.ScreenUtils;
+import org.metatransapps.commons.cfg.ConfigurationUtils_Base;
+import org.metatransapps.commons.cfg.IConfigurationEntry;
+import org.metatransapps.commons.graphics2d.app.Application_2D_Base;
+import org.metatransapps.commons.ui.utils.ScreenUtils;
 
 
 public class ConfigurationUtils_Level extends ConfigurationUtils_Base {

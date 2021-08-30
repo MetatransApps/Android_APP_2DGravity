@@ -1,19 +1,20 @@
 package com.gravityplay.loading;
 
 
-import com.apps.mobile.android.commons.Activity_Base;
-import com.apps.mobile.android.commons.ads.api.IAdsConfiguration;
-import com.apps.mobile.android.commons.app.Application_Base_Ads;
-import com.apps.mobile.android.commons.cfg.colours.ConfigurationUtils_Colours;
-import com.apps.mobile.android.commons.cfg.colours.IConfigurationColours;
-import com.apps.mobile.android.commons.loading.View_Loading_Base;
+import org.metatransapps.commons.Activity_Base;
+import org.metatransapps.commons.ads.api.IAdsConfiguration;
+import org.metatransapps.commons.app.Application_Base_Ads;
+import org.metatransapps.commons.cfg.colours.ConfigurationUtils_Colours;
+import org.metatransapps.commons.cfg.colours.IConfigurationColours;
+import org.metatransapps.commons.loading.View_Loading_Base;
+
 import com.gravityplay.lib.R;
 import com.gravityplay.app.Application_Gravity;
 import com.gravityplay.main.Activity_Main_Gravity;
 import com.gravityplay.menu.Activity_Menu_Levels;
 
 
-public class Activity_Loading extends com.apps.mobile.android.commons.loading.Activity_Loading_Base_Ads {
+public class Activity_Loading extends org.metatransapps.commons.loading.Activity_Loading_Base_Ads {
 	
 	
 	@Override

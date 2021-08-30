@@ -1,19 +1,20 @@
 package com.gravityplay.app;
 
 
-import com.apps.mobile.android.commons.achievements.IAchievementsManager;
-import com.apps.mobile.android.commons.app.Application_Base;
-import com.apps.mobile.android.commons.cfg.app.IAppConfig;
-import com.apps.mobile.android.commons.cfg.colours.ConfigurationUtils_Colours;
-import com.apps.mobile.android.commons.cfg.menu.ConfigurationUtils_Base_MenuMain;
-import com.apps.mobile.android.commons.engagement.ILeaderboardsProvider;
-import com.apps.mobile.android.commons.engagement.leaderboards.LeaderboardsProvider_Base;
-import com.apps.mobile.android.commons.events.api.IEventsManager;
-import com.apps.mobile.android.commons.graphics2d.app.Application_2D_Base;
-import com.apps.mobile.android.commons.graphics2d.model.IWorld;
-import com.apps.mobile.android.commons.model.GameData_Base;
-import com.apps.mobile.android.commons.model.UserSettings_Base;
-import com.apps.mobile.android.commons.ui.utils.DebugUtils;
+import org.metatransapps.commons.achievements.IAchievementsManager;
+import org.metatransapps.commons.app.Application_Base;
+import org.metatransapps.commons.cfg.app.IAppConfig;
+import org.metatransapps.commons.cfg.colours.ConfigurationUtils_Colours;
+import org.metatransapps.commons.cfg.menu.ConfigurationUtils_Base_MenuMain;
+import org.metatransapps.commons.engagement.ILeaderboardsProvider;
+import org.metatransapps.commons.engagement.leaderboards.LeaderboardsProvider_Base;
+import org.metatransapps.commons.events.api.IEventsManager;
+import org.metatransapps.commons.graphics2d.app.Application_2D_Base;
+import org.metatransapps.commons.graphics2d.model.IWorld;
+import org.metatransapps.commons.model.GameData_Base;
+import org.metatransapps.commons.model.UserSettings_Base;
+import org.metatransapps.commons.ui.utils.DebugUtils;
+
 import com.gravityplay.lib.BuildConfig;
 import com.gravityplay.achievements.AchievementsManager_Gravity;
 import com.gravityplay.cfg.app.AppConfig_Gravity;

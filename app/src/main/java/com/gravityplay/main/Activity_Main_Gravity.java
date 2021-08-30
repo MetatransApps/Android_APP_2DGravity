@@ -3,11 +3,11 @@ package com.gravityplay.main;
 
 import android.view.View;
 
-import com.apps.mobile.android.commons.ads.api.IAdsConfiguration;
-import com.apps.mobile.android.commons.ads.impl.flow.IAdLoadFlow;
-import com.apps.mobile.android.commons.app.Application_Base_Ads;
-import com.apps.mobile.android.commons.app.IActivityInterstitial;
-import com.apps.mobile.android.commons.graphics2d.main.Activity_Main_Base2D;
+import org.metatransapps.commons.ads.api.IAdsConfiguration;
+import org.metatransapps.commons.ads.impl.flow.IAdLoadFlow;
+import org.metatransapps.commons.app.Application_Base_Ads;
+import org.metatransapps.commons.app.IActivityInterstitial;
+import org.metatransapps.commons.graphics2d.main.Activity_Main_Base2D;
 
 
 public class Activity_Main_Gravity extends Activity_Main_Base2D implements IActivityInterstitial {
