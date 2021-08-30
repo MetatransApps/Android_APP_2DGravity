@@ -1,11 +1,9 @@
 package com.gravityplay.model.entities;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.RectF;
 
 import com.apps.mobile.android.commons.app.Application_Base;

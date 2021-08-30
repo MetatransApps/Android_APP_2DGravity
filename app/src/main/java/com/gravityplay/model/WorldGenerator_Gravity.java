@@ -2,7 +2,6 @@ package com.gravityplay.model;
 
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import android.content.Context;
 import android.graphics.RectF;

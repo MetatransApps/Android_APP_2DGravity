@@ -10,7 +10,6 @@ import android.graphics.RectF;
 import com.apps.mobile.android.commons.app.Application_Base;
 import com.apps.mobile.android.commons.app.Application_Base_Ads;
 import com.apps.mobile.android.commons.graphics2d.app.Application_2D_Base;
-import com.apps.mobile.android.commons.graphics2d.model.GameData;
 import com.apps.mobile.android.commons.graphics2d.model.World;
 import com.apps.mobile.android.commons.graphics2d.model.entities.Entity2D_Player;
 import com.apps.mobile.android.commons.graphics2d.model.entities.IEntity2D;
