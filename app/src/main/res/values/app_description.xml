@@ -2,41 +2,5 @@
 <resources>
     
         <string name="app_name">Gravity Force Finger 137: Cross the Orbits</string>
-        
-        <string name="app_html_desc_short">
-        <![CDATA[
-        
-Play with gravity.
-Use your fingers gravity.
-        
-        		]]>
-    </string>
-    
-    
-    <string name="app_html_desc">
-        <![CDATA[
-        
-Use the gravity force of your fingers to collect 137 flying space objects into the screen.
-The game is to keep your finger on the screen and to observe how the gravity force is moving the objects.
-You could move your finger in order to cross the orbit of an object and to collect them faster.
-Sometimes you have to release the objects and to collect them all again.
-There are a few levels. After each level the objects become a bit faster and the space is increasing.
-
-The game is supporting different playing levels as well as more other features, like:
-1. High scores - keeps track of your best score.
-2. Supports different color palettes for different tastes.
-3. Supports tablets and phones.
-4. Increasing difficulties.
-
-Your feedback and/or review is more than welcome.
-
-        ]]>
-    </string>
-    
-    <string name="app_html_keywords">
-        <![CDATA[
-         	Gravity, Play, Game
-                ]]>
-    </string>
     
 </resources>
