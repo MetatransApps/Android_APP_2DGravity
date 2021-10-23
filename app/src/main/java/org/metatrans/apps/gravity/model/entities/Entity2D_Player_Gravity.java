@@ -74,8 +74,7 @@ public class Entity2D_Player_Gravity extends Entity2D_Player {
 			getGameData().world = Application_2D_Base.getInstance().createNewWorld();
 			
 			Application_Base.getInstance().storeGameData();
-			
-			//Application_Base_Ads.getInstance().openInterstitial();
+
 		} else {
 			
 			if (getGameData().count_lives <= 0) {
@@ -102,8 +101,6 @@ public class Entity2D_Player_Gravity extends Entity2D_Player {
 		System.out.println("Entity2D_Player_Gravity.killedFinal: total_count_objects=" + getGameData().total_count_objects);
 		
 		super.killedFinal();
-		
-		Application_Base_Ads.getInstance().openInterstitial();
 	}
 	
 	

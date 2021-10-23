@@ -12,6 +12,8 @@ import org.metatrans.commons.Alerts_Base;
 import org.metatrans.commons.app.Application_Base;
 import org.metatrans.commons.cfg.ConfigurationUtils_Base;
 import org.metatrans.commons.cfg.IConfigurationEntry;
+import org.metatrans.commons.cfg.colours.ConfigurationUtils_Colours;
+import org.metatrans.commons.cfg.colours.IConfigurationColours;
 import org.metatrans.commons.events.EventsData_Base;
 import org.metatrans.commons.graphics2d.app.Application_2D_Base;
 import org.metatrans.commons.ui.Toast_Base;
@@ -59,13 +61,18 @@ public class Activity_Menu_Levels extends Activity_Base {
 		
 		
 		int currOrderNumber = getConfigurationLevels().getOrderNumber(((Application_Base)getApplication()).getUserSettings().modeID);
-		
+
 		LayoutInflater inflater = LayoutInflater.from(this);
-		ViewGroup frame = ListViewFactory.create_CITD_ByXML(this, inflater, buildRows(currOrderNumber), currOrderNumber, new OnItemClickListener_Menu());
-		
+
+		IConfigurationColours coloursCfg = ConfigurationUtils_Colours.getConfigByID(((Application_Base) getApplication()).getUserSettings().uiColoursID);
+
+		int color_background = coloursCfg.getColour_Background();
+
+		ViewGroup frame = ListViewFactory.create_CITD_ByXML(this, inflater, buildRows(currOrderNumber), currOrderNumber, color_background, new OnItemClickListener_Menu());
+
+		frame.setBackgroundColor(color_background);
+
 		setContentView(frame);
-		
-		setBackgroundPoster(R.id.commons_listview_frame, 55);
 	}
 	
 	
@@ -274,22 +281,5 @@ public class Activity_Menu_Levels extends Activity_Base {
 		((Application_Base)getApplication()).storeUserSettings();
 		
 		((Application_Base)getApplication()).recreateGameDataObject();
-		
-		//IEventsManager eventsManager = Application_Base.getInstance().getEventsManager();
-		//eventsManager.register(this, eventsManager.create(IEvent_Base.MENU_OPERATION, IEvent_Base.MENU_OPERATION_CHANGE_MODE, modeID,
-		//		"MENU_OPERATION", "CHANGE_MODE_L", "" + modeID));
-	}
-	
-	
-	/*@Override
-	protected int getBackgroundImageID() {
-		boolean left_handed = (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE);
-		return left_handed ? R.drawable.ic_bell_landscape : R.drawable.ic_bell_portrait;
-	}*/
-	
-	
-	@Override
-	protected int getBackgroundImageID() {
-		return 0;//R.drawable.ic_logo_balls;
 	}
 }

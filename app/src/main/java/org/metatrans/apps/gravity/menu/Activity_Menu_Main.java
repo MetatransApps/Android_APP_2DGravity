@@ -1,6 +1,7 @@
 package org.metatrans.apps.gravity.menu;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.metatrans.apps.gravity.cfg.world.ConfigurationUtils_Level;
@@ -15,34 +16,27 @@ import android.content.Intent;
 
 
 public class Activity_Menu_Main extends Activity_Menu_Main_Base {
-	
-	
+
+
 	public static int CFG_MENU_LEVELS			 		= 15;
+	public static int CFG_MENU_RESULT			 		= 16;
+	public static int CFG_MENU_ACHIEVEMENTS		 		= 17;
 	
 	
 	@Override
 	protected int getBackgroundImageID() {
-		return 0;//R.drawable.ic_logo_balls;
+		return 0;
 	}
 	
 	
 	@Override
 	protected List<IConfigurationMenu_Main> getEntries() {
-		
-		
-		List<IConfigurationMenu_Main> entries = super.getEntries();
-		
-		//Add on 4 or 3 position in order to leave 'Invite Friends' on position 0 and other options on positions 1, 2, 3.
-		int addIndex = 3;
-		if (Application_Base.getInstance().getApp_Me().getPaidVersion() != null) {
-			addIndex = 4;
-		}
-		
-		entries.remove(entries.size() - 1);
-		entries.remove(entries.size() - 1);
-		entries.remove(entries.size() - 1);
-		
-		entries.add(addIndex, new Config_MenuMain_Base() {
+
+
+		List<IConfigurationMenu_Main> result = new ArrayList<IConfigurationMenu_Main>();
+
+
+		result.add( new Config_MenuMain_Base() {
 			
 			@Override
 			public int getName() {
@@ -51,7 +45,7 @@ public class Activity_Menu_Main extends Activity_Menu_Main_Base {
 			
 			@Override
 			public int getIconResID() {
-				return R.drawable.ic_rainbow;
+				return R.drawable.ic_milki_way;
 			}
 			
 			@Override
@@ -83,8 +77,92 @@ public class Activity_Menu_Main extends Activity_Menu_Main_Base {
 				};
 			}
 		});
-		
-		
-		return entries;
+
+
+		result.add(new Config_MenuMain_Base() {
+
+			@Override
+			public int getName() {
+				return R.string.scores;
+			}
+
+			@Override
+			public int getIconResID() {
+				return R.drawable.ic_123;
+			}
+
+			@Override
+			public int getID() {
+				return CFG_MENU_RESULT;
+			}
+
+			@Override
+			public String getDescription_String() {
+				return "";
+			}
+
+			@Override
+			public Runnable getAction() {
+
+				return new Runnable() {
+
+					@Override
+					public void run() {
+
+						int modeID = Application_Base.getInstance().getUserSettings().modeID;
+
+						Application_Base.getInstance().getEngagementProvider().getLeaderboardsProvider().openLeaderboard_LocalOnly(modeID);
+
+						Application_Base.getInstance().getEngagementProvider().getLeaderboardsProvider().openLeaderboard(modeID);
+					}
+				};
+			}
+		});
+
+
+		result.add(new Config_MenuMain_Base() {
+
+			@Override
+			public int getName() {
+				return R.string.achievements;
+			}
+
+			@Override
+			public int getIconResID() {
+				return org.metatrans.commons.R.drawable.ic_cup;
+			}
+
+			@Override
+			public int getID() {
+				return Activity_Menu_Main.CFG_MENU_ACHIEVEMENTS;
+			}
+
+			@Override
+			public String getDescription_String() {
+				return "";
+			}
+
+			@Override
+			public Runnable getAction() {
+
+				return new Runnable() {
+
+					@Override
+					public void run() {
+
+						Application_Base.getInstance().getEngagementProvider().getAchievementsProvider().openAchievements();
+					}
+				};
+			}
+		});
+
+
+		List<IConfigurationMenu_Main> entries = super.getEntries();
+
+
+		result.addAll(entries);
+
+
+		return result;
 	}
 }
