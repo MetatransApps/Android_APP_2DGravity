@@ -1,6 +1,8 @@
 package org.metatrans.apps.gravity.cfg.world;
 
 
+import android.content.Context;
+
 import org.metatrans.commons.cfg.ConfigurationUtils_Base;
 import org.metatrans.commons.cfg.IConfigurationEntry;
 import org.metatrans.commons.graphics2d.app.Application_2D_Base;
@@ -21,11 +23,11 @@ public class ConfigurationUtils_Level extends ConfigurationUtils_Base {
 	}
 	
 	
-	public static void createInstance() {
+	public static void createInstance(Context context) {
 		
 		IConfigurationEntry[] cfgs_levels = new IConfigurationEntry[14];
 		
-		int[] size_xy 	= ScreenUtils.getScreenSize(Application_2D_Base.getInstance());
+		int[] size_xy 	= ScreenUtils.getScreenSize(context);
 		float speed 	= Math.min(size_xy[0], size_xy[1]) / 50;
 		
 		for (int i=0; i<cfgs_levels.length; i++) {
