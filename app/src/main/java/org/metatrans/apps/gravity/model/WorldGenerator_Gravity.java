@@ -75,7 +75,7 @@ public class WorldGenerator_Gravity {
 			world.addEntity(new Entity2D_Challenger_Gravity(world,
 							rect,
 							world.getGroundEntities(), world.getKillersEntities_forChallengers(),
-							world.getPlayerEntity().getEvelop().left, world.getPlayerEntity().getEvelop().top,
+							world.getPlayerEntity().getEnvelop().left, world.getPlayerEntity().getEnvelop().top,
 							world.getMovingEntities(),
 							mass,
 							cfg.getMaxSpeed(),

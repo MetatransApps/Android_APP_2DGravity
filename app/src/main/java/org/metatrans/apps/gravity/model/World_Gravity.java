@@ -86,7 +86,7 @@ public class World_Gravity extends World {
 	private int getCountEntries_InScreen() {
 		int count = 0;
 		for (Entity2D_Moving moving : getMovingEntities()) {
-			if (RectF.intersects(moving.getEvelop(), getCamera())) {
+			if (RectF.intersects(moving.getEnvelop(), getCamera())) {
 				count++;
 			}
 		}

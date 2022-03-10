@@ -58,10 +58,10 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Moving {
 			if (object instanceof Entity2D_Challenger_Gravity) {
 				Entity2D_Challenger_Gravity massObject = (Entity2D_Challenger_Gravity)object;
 				
-				float other_x = massObject.getX() + (massObject.getEvelop().right - massObject.getEvelop().left) / 2;
-				float other_y = massObject.getY() + (massObject.getEvelop().bottom - massObject.getEvelop().top) / 2;
-				float my_x = getEvelop().left + (getEvelop().right - getEvelop().left) / 2;
-				float my_y = getEvelop().top + (getEvelop().bottom - getEvelop().top) / 2;
+				float other_x = massObject.getX() + (massObject.getEnvelop().right - massObject.getEnvelop().left) / 2;
+				float other_y = massObject.getY() + (massObject.getEnvelop().bottom - massObject.getEnvelop().top) / 2;
+				float my_x = getEnvelop().left + (getEnvelop().right - getEnvelop().left) / 2;
+				float my_y = getEnvelop().top + (getEnvelop().bottom - getEnvelop().top) / 2;
 				float dx = other_x - my_x;
 				float dy = other_y - my_y;
 				
@@ -84,8 +84,8 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Moving {
 		if (fx != null && fy != null) {
 			float pointer_x = getWorld().getCamera().left + fx;
 			float pointer_y = getWorld().getCamera().top + fy;
-			float my_x = getEvelop().left + (getEvelop().right - getEvelop().left) / 2;
-			float my_y = getEvelop().top + (getEvelop().bottom - getEvelop().top) / 2;
+			float my_x = getEnvelop().left + (getEnvelop().right - getEnvelop().left) / 2;
+			float my_y = getEnvelop().top + (getEnvelop().bottom - getEnvelop().top) / 2;
 			float dx = pointer_x - my_x;
 			float dy = pointer_y - my_y;
 			float distance = (float) Math.sqrt(dx * dx + dy * dy);
@@ -152,9 +152,9 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Moving {
 	public void draw(Canvas c) {
 		getPaint().setColor(ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID).getColour_Square_White());
 		getPaint().setAlpha(255);
-		c.drawCircle(getEvelop().left + (getEvelop().right - getEvelop().left) / 2,
-					 getEvelop().top + (getEvelop().bottom - getEvelop().top) / 2,
-					 (getEvelop().right - getEvelop().left) / 2,
+		c.drawCircle(getEnvelop().left + (getEnvelop().right - getEnvelop().left) / 2,
+					 getEnvelop().top + (getEnvelop().bottom - getEnvelop().top) / 2,
+					 (getEnvelop().right - getEnvelop().left) / 2,
 					 getPaint());
 	}
 	
