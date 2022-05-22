@@ -11,6 +11,7 @@ import org.metatrans.commons.graphics2d.model.entities.Entity2D_Ground;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Moving;
 import org.metatrans.commons.graphics2d.model.entities.IEntity2D;
 
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 
@@ -140,14 +141,20 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Moving {
 	
 	
 	@Override
-	protected void killed() {
+	protected void killed(Entity2D_Moving killer) {
 		
-		super.killed();
+		super.killed(killer);
 		
 		//((GameData_StopTheBalls)Application_Base.getInstance().getGameData()).count_killed_balls++;
 	}
-	
-	
+
+
+	@Override
+	public Bitmap getBitmap() {
+
+		return null;
+	}
+
 	@Override
 	public void draw(Canvas c) {
 		getPaint().setColor(ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID).getColour_Square_White());

@@ -36,9 +36,9 @@ public class World_Gravity extends World {
 	private Float pointer_y;
 	
 	
-	public World_Gravity(Context _activity) {
+	public World_Gravity(Context _activity, int _maze_size_x, int _maze_size_y) {
 		
-		super(_activity);
+		super(_activity, _maze_size_x, _maze_size_y);
 		
 		SPEED_MAX_CHALLENGER = 1 * SPEED_MAX_CHALLENGER / 2;
 		

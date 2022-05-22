@@ -17,6 +17,7 @@ import org.metatrans.commons.graphics2d.model.entities.IEntity2D;
 import org.metatrans.commons.model.LevelResult_Base;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 
@@ -107,8 +108,14 @@ public class Entity2D_Player_Gravity extends Entity2D_Player {
 	protected GameData_Gravity getGameData() {
 		return (GameData_Gravity) (Application_Gravity.getInstance()).getGameData();
 	}
-	
-	
+
+
+	@Override
+	public Bitmap getBitmap() {
+
+		return null;
+	}
+
 	@Override
 	public void draw(Canvas c) {
 		

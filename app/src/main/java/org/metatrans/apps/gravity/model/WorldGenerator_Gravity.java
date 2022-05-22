@@ -30,14 +30,14 @@ public class WorldGenerator_Gravity {
 		
 		float spaceScaleFactor = cfg.getSpaceMultiplier();
 		
-		World_Gravity world = new World_Gravity(activity);
-		
 		int[] screen_size = ScreenUtils.getScreenSize(activity);
 		int main_width = (int) (1 * Math.max(screen_size[0], screen_size[1]));
 		int main_height = (int) (1 * Math.min(screen_size[0], screen_size[1]));
 		
 		int cell_size = main_width / 17;
-		
+
+		World_Gravity world = new World_Gravity(activity, (int) (spaceScaleFactor * main_width), (int) (spaceScaleFactor * main_height));
+
 		world.setCellSize(cell_size);//Buttons size
 		
 		world.addEntity(new Entity2D_Player_Gravity(world,
