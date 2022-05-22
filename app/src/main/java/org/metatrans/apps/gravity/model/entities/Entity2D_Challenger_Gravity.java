@@ -7,6 +7,7 @@ import org.metatrans.apps.gravity.model.World_Gravity;
 import org.metatrans.commons.app.Application_Base;
 import org.metatrans.commons.cfg.colours.ConfigurationUtils_Colours;
 import org.metatrans.commons.graphics2d.model.World;
+import org.metatrans.commons.graphics2d.model.entities.Entity2D_Challenger;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Ground;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Moving;
 import org.metatrans.commons.graphics2d.model.entities.IEntity2D;
@@ -16,7 +17,7 @@ import android.graphics.Canvas;
 import android.graphics.RectF;
 
 
-public class Entity2D_Challenger_Gravity extends Entity2D_Moving {
+public class Entity2D_Challenger_Gravity extends Entity2D_Challenger {
 	
 	
 	private static final long serialVersionUID = 5416967203188382917L;
@@ -37,8 +38,8 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Moving {
 			float x_player, float y_player,
 			List<? extends Entity2D_Moving> _massObjects,
 			float _mass, float _max_speed, float _massOfPointer) {
-		
-		super(_world, _evelop, SUBTYPE_MOVING_CHALLENGER, _blockerEntities, _killerEntities);
+
+		super(_world, _evelop, _blockerEntities, _killerEntities);
 		
 		massObjects = _massObjects;
 		mass = _mass;
@@ -154,6 +155,14 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Moving {
 
 		return null;
 	}
+
+
+	@Override
+	protected boolean supportsFeeding() {
+
+		return false;
+	}
+
 
 	@Override
 	public void draw(Canvas c) {
