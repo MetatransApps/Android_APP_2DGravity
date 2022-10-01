@@ -12,7 +12,9 @@ public class GameData_Gravity extends org.metatrans.commons.graphics2d.model.Gam
 	
 	
 	public GameData_Gravity() {
-		
+
+		super();
+
 		count_lives = 15 * 60 * 1000 / 24;// / 20;
 	}
 }

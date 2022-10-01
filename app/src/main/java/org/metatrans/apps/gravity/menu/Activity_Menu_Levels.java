@@ -64,7 +64,7 @@ public class Activity_Menu_Levels extends Activity_Base {
 
 		LayoutInflater inflater = LayoutInflater.from(this);
 
-		IConfigurationColours coloursCfg = ConfigurationUtils_Colours.getConfigByID(((Application_Base) getApplication()).getUserSettings().uiColoursID);
+		IConfigurationColours coloursCfg = ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID);
 
 		int color_background = coloursCfg.getColour_Background();
 

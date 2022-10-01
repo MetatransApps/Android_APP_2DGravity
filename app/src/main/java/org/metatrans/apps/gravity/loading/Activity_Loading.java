@@ -7,6 +7,7 @@ import org.metatrans.apps.gravity.main.Activity_Main_Gravity;
 import org.metatrans.apps.gravity.menu.Activity_Menu_Levels;
 import org.metatrans.commons.Activity_Base;
 import org.metatrans.commons.ads.api.IAdsConfiguration;
+import org.metatrans.commons.app.Application_Base;
 import org.metatrans.commons.app.Application_Base_Ads;
 import org.metatrans.commons.cfg.colours.ConfigurationUtils_Colours;
 import org.metatrans.commons.cfg.colours.IConfigurationColours;
@@ -73,7 +74,7 @@ public class Activity_Loading extends org.metatrans.commons.loading.Activity_Loa
 	
 	@Override
 	protected IConfigurationColours getColoursCfg() {
-		IConfigurationColours coloursCfg = ConfigurationUtils_Colours.getConfigByID(((Application_Base_Ads)getApplication()).getUserSettings().uiColoursID);
+		IConfigurationColours coloursCfg = ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID);
 		return coloursCfg;
 	}
 }

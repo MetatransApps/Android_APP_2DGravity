@@ -1,10 +1,6 @@
 package org.metatrans.apps.gravity.model;
 
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 import org.metatrans.apps.gravity.cfg.world.ConfigurationUtils_Level;
 import org.metatrans.apps.gravity.menu.ConfigurationUtils_SpaceObjects;
 import org.metatrans.commons.cfg.colours.IConfigurationColours;
@@ -16,6 +12,8 @@ public class UserSettings_Gravity extends UserSettings {
 	
 	private static final long serialVersionUID = 3199714911195754477L;
 	
+	private static final int DEFAULT_CFG_ID_COLOUR = IConfigurationColours.CFG_COLOUR_BLUE_PETROL;
+
 
 	public int cfg_id_space_objects;
 
@@ -23,33 +21,15 @@ public class UserSettings_Gravity extends UserSettings {
 	public UserSettings_Gravity() {
 		
 		super();
-		
-		uiColoursID 		= IConfigurationColours.CFG_COLOUR_BLUE_DOVE;
-		modeID 				= ConfigurationUtils_Level.LEVEL_ID_DEFAULT;
-		
-		//fixFields("constructor");
+
+		cfg_id_space_objects 	= ConfigurationUtils_SpaceObjects.START_INDEX;
+		uiColoursID 			= DEFAULT_CFG_ID_COLOUR;
+		modeID 					= ConfigurationUtils_Level.LEVEL_ID_DEFAULT;
 	}
-	
-	
-	private void writeObject(ObjectOutputStream oos) throws IOException {
-		
-	    fixFields("writeObject");
-	    
-	    // default serialization 
-	    oos.defaultWriteObject();
-	}
-	
-	
-	private void readObject(ObjectInputStream ois) throws ClassNotFoundException, IOException {
-	    
-	    // default deserialization
-	    ois.defaultReadObject();
-	    
-	    fixFields("readObject");
-	}
-	
-	
-	private void fixFields(String op) {
+
+
+	@Override
+	protected void fixFields(String op) {
 
 		if (cfg_id_space_objects == 0) {
 
@@ -57,7 +37,7 @@ public class UserSettings_Gravity extends UserSettings {
 		}
 
 		if (uiColoursID == 0) {
-	    	uiColoursID 		= IConfigurationColours.CFG_COLOUR_GRAY;
+	    	uiColoursID 		= DEFAULT_CFG_ID_COLOUR;
 	    	System.out.println("UserSettings: " + op + " - updating colour id");
 	    }
 	    

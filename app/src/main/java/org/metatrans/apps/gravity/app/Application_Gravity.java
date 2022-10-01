@@ -41,7 +41,7 @@ public abstract class Application_Gravity extends Application_2D_Base {
 		
 		System.out.println("Application_EC: onCreate called " + System.currentTimeMillis());
 		
-		ConfigurationUtils_Colours.class.getName();
+		ConfigurationUtils_Colours.getAll();
 		
 		ConfigurationUtils_Base_MenuMain.createInstance();
 	}
