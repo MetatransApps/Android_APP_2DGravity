@@ -24,7 +24,7 @@ public class UserSettings_Gravity extends UserSettings {
 		
 		super();
 		
-		uiColoursID 		= IConfigurationColours.CFG_COLOUR_GRAY;
+		uiColoursID 		= IConfigurationColours.CFG_COLOUR_BLUE_DOVE;
 		modeID 				= ConfigurationUtils_Level.LEVEL_ID_DEFAULT;
 		
 		//fixFields("constructor");
