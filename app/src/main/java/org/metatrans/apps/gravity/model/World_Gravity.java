@@ -44,6 +44,9 @@ public class World_Gravity extends World {
 		
 		killersEntities_forPlayer 		= new ArrayList<IEntity2D>();
 		killersEntities_forChallengers 	= new ArrayList<IEntity2D>();
+
+		//pointer_x = getCamera().left;
+		//pointer_y = getCamera().top;
 	}
 	
 	
@@ -63,9 +66,16 @@ public class World_Gravity extends World {
 		
 		bitmap_level   	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_level);
 		bitmap_lives 	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_heart);
-		bitmap_balls   	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_ball_green);
+		bitmap_balls   	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_asteroid_blue_green);
 	}
-	
+
+
+	@Override
+	public boolean hasToDrawPlayerLast() {
+
+		return false;
+	}
+
 	
 	public void setPointer(Float x, Float y) {
 		pointer_x = x;

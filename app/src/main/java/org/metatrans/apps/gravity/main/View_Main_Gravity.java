@@ -10,6 +10,7 @@ import android.view.MotionEvent;
 
 import org.metatrans.apps.gravity.menu.Activity_Menu_Main;
 import org.metatrans.apps.gravity.model.GameData_Gravity;
+import org.metatrans.apps.gravity.model.WorldGenerator_Gravity;
 import org.metatrans.apps.gravity.model.World_Gravity;
 import org.metatrans.commons.app.Application_Base;
 import org.metatrans.commons.graphics2d.app.Application_2D_Base;
@@ -39,8 +40,12 @@ public class View_Main_Gravity extends View_Main_Base {
 	private TextArea textarea_level;
 	private TextArea textarea_lives;
 	private TextArea textarea_stars;
-	
-	
+
+	private int stars_count_old 		= getObjectsLeft();
+
+	private static final Float ZEOR_F 	= 0f;
+
+
 	public View_Main_Gravity(Activity_Main_Base2D activity) {
 		
 		super(activity);
@@ -106,12 +111,27 @@ public class View_Main_Gravity extends View_Main_Base {
 		textarea_level.setText("" + level + " ");
 		textarea_level.draw(canvas);
 		
-		int stars = ((GameData_Gravity)Application_Base.getInstance().getGameData()).count_objects;
+		int stars = getObjectsLeft();
+
 		canvas.drawBitmap(World_Gravity.getBitmap_balls(), null, rect_stars_icon, default_paint);
-		textarea_stars.setColour_Text(Color.GREEN);
+
+		if (stars < stars_count_old) {
+
+			textarea_stars.setColour_Text(Color.GREEN);
+
+		} else if (stars > stars_count_old) {
+
+			textarea_stars.setColour_Text(Color.RED);
+
+		} else {
+
+			textarea_stars.setColour_Text(Color.GRAY);
+		}
+
 		textarea_stars.setText("x " + stars + " ");
 		textarea_stars.draw(canvas);
-		
+		stars_count_old = stars;
+
 		int lives = Application_2D_Base.getInstance().getGameData().count_lives;
 		canvas.drawBitmap(World_Gravity.getBitmap_lives(), null, rect_lives_icon, default_paint);
 		textarea_lives.setColour_Text(Color.GREEN);
@@ -119,7 +139,14 @@ public class View_Main_Gravity extends View_Main_Base {
 		textarea_lives.draw(canvas);
 	}
 	
-	
+
+	private static final int getObjectsLeft() {
+
+		return WorldGenerator_Gravity.getObjectsCount()
+				- ((GameData_Gravity)Application_Base.getInstance().getGameData()).count_objects;
+	}
+
+
 	protected World_Gravity getWorld() {
 		return (World_Gravity) super.getWorld();
 	}
@@ -165,7 +192,8 @@ public class View_Main_Gravity extends View_Main_Base {
 		if (!Application_2D_Base.getInstance().isCurrentlyGameActiveIntoTheMainScreen()) {
 			return;
 		}
-		
+
 		getWorld().setPointer(null, null);
+		//getWorld().setPointer(ZEOR_F, ZEOR_F);
 	}
 }

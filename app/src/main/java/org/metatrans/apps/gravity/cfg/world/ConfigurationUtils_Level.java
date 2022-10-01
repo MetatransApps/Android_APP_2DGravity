@@ -32,8 +32,8 @@ public class ConfigurationUtils_Level extends ConfigurationUtils_Base {
 		
 		for (int i=0; i<cfgs_levels.length; i++) {
 			
-			float cur_max_speed = speed * (1 + 1 * i / (float)4);
-			float spaceMultiplier = 2 + 1 * i / (float)3;
+			float cur_max_speed = speed * (1 + 1 * i / 4f);
+			float spaceMultiplier = 2 + 1 * i / 3f;
 			
 			cfgs_levels[i] = new Configuration_World(i + 1, cur_max_speed, spaceMultiplier);
 		}

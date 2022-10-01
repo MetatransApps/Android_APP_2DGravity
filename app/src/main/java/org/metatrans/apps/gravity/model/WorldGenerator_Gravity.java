@@ -20,7 +20,7 @@ public class WorldGenerator_Gravity {
 	
 	
 	public static int getObjectsCount() {
-		return 137;
+		return 137; //137;
 	}
 	
 	
@@ -39,12 +39,14 @@ public class WorldGenerator_Gravity {
 		World_Gravity world = new World_Gravity(activity, (int) (spaceScaleFactor * main_width), (int) (spaceScaleFactor * main_height));
 
 		world.setCellSize(cell_size);//Buttons size
-		
+
+		float CELL_MULT = 5f;
+
 		world.addEntity(new Entity2D_Player_Gravity(world,
-				new RectF(spaceScaleFactor / 2 * main_width - cell_size / 2,
-							spaceScaleFactor / 2 * main_height - cell_size / 2,
-							spaceScaleFactor / 2 * main_width + cell_size / 2,
-							spaceScaleFactor / 2 * main_height + cell_size / 2
+				new RectF(main_width - CELL_MULT * cell_size,
+						main_height - CELL_MULT * cell_size,
+						main_width + CELL_MULT * cell_size,
+						main_height + CELL_MULT * cell_size
 						),
 						new ArrayList<IEntity2D>(),
 						ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID).getColour_Square_ValidSelection()));
@@ -65,13 +67,9 @@ public class WorldGenerator_Gravity {
 			
 			float mass = MAX_MASS;//Math.max(1, rnd.nextInt(MAX_MASS));
 			
-			float radius = Math.max(cell_size / 7, mass / 10);
-			radius = Math.min(cell_size / 6, radius);
+			float radius = (int) (cell_size / 1.5f);
 			RectF rect = new RectF(x, y, x + 2 * radius, y + 2 * radius);
-			
-			//int color = ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID).getColour_Square_White(); 
-			//Color.WHITE;//argb(255, 256 - mass * 256 / MAX_MASS, 256 - mass * 256 / MAX_MASS, 256 - mass * 256 / MAX_MASS);
-			
+
 			world.addEntity(new Entity2D_Challenger_Gravity(world,
 							rect,
 							world.getGroundEntities(), world.getKillersEntities_forChallengers(),

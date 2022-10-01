@@ -3,21 +3,24 @@ package org.metatrans.apps.gravity.model.entities;
 
 import java.util.List;
 
+import org.metatrans.apps.gravity.lib.R;
 import org.metatrans.apps.gravity.model.World_Gravity;
 import org.metatrans.commons.app.Application_Base;
 import org.metatrans.commons.cfg.colours.ConfigurationUtils_Colours;
+import org.metatrans.commons.graphics2d.app.Application_2D_Base;
 import org.metatrans.commons.graphics2d.model.World;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Challenger;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Ground;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Moving;
 import org.metatrans.commons.graphics2d.model.entities.IEntity2D;
+import org.metatrans.commons.ui.utils.BitmapUtils;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 
 
-public class Entity2D_Challenger_Gravity extends Entity2D_Challenger {
+public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenger {
 	
 	
 	private static final long serialVersionUID = 5416967203188382917L;
@@ -29,8 +32,10 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Challenger {
 	private float mass;
 	private float max_speed;
 	private float massOfPointer;
-	
-	
+
+	private static transient Bitmap bitmap;
+
+
 	public Entity2D_Challenger_Gravity(World _world,
 			RectF _evelop,
 			List<Entity2D_Ground> _blockerEntities,
@@ -153,7 +158,15 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Challenger {
 	@Override
 	public Bitmap getBitmap() {
 
-		return null;
+		if (bitmap == null) {
+
+			bitmap = BitmapUtils.fromResource(Application_2D_Base.getInstance(), R.drawable.gravity_asteroid_blue_green);
+			//bitmap = BitmapUtils.fromResource(Application_2D_Base.getInstance(), R.drawable.gravity_asteroid_gray);
+			//bitmap = BitmapUtils.fromResource(Application_2D_Base.getInstance(), R.drawable.gravity_asteroid_blue);
+			bitmap = BitmapUtils.createScaledBitmap(bitmap, (int) (getEnvelop().right - getEnvelop().left), (int) (getEnvelop().bottom - getEnvelop().top));
+		}
+
+		return bitmap;
 	}
 
 
@@ -166,12 +179,27 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Challenger {
 
 	@Override
 	public void draw(Canvas c) {
-		getPaint().setColor(ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID).getColour_Square_White());
-		getPaint().setAlpha(255);
-		c.drawCircle(getEnvelop().left + (getEnvelop().right - getEnvelop().left) / 2,
-					 getEnvelop().top + (getEnvelop().bottom - getEnvelop().top) / 2,
-					 (getEnvelop().right - getEnvelop().left) / 2,
-					 getPaint());
+
+		Bitmap bitmap = getBitmap();
+
+		if (bitmap == null) {
+
+			getPaint().setColor(ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID).getColour_Square_White());
+			getPaint().setAlpha(255);
+
+			c.drawCircle(getEnvelop().left + (getEnvelop().right - getEnvelop().left) / 2,
+					getEnvelop().top + (getEnvelop().bottom - getEnvelop().top) / 2,
+					(getEnvelop().right - getEnvelop().left) / 2,
+					getPaint());
+		} else {
+
+			RectF envelop = getEnvelop_ForDraw();
+
+			//if (envelop != null) {
+
+				c.drawBitmap(bitmap, null, envelop, null);
+			//}
+		}
 	}
 	
 	
