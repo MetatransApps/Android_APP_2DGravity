@@ -2,5 +2,10 @@
 	
 	<string name="speed">Speed</string>
 	<string name="space">Space</string>
-	
+
+	<string name="space_objects">Space Objects</string>
+	<string name="asteroid_green">Green Asteroids</string>
+	<string name="asteroid_gray">Gray Asteroids</string>
+	<string name="asteroid_blue">Blue Asteroids</string>
+
 </resources>

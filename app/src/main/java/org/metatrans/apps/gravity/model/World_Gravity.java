@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.metatrans.apps.gravity.lib.R;
+import org.metatrans.apps.gravity.menu.ConfigurationUtils_SpaceObjects;
+import org.metatrans.apps.gravity.menu.IConfigurationSpaceObjects;
 import org.metatrans.commons.app.Application_Base;
 import org.metatrans.commons.graphics2d.app.Application_2D_Base;
 import org.metatrans.commons.graphics2d.model.World;
@@ -25,9 +27,9 @@ public class World_Gravity extends World {
 	private static final long serialVersionUID = 3276469433687306613L;
 	
 	
-	private static Bitmap bitmap_level;
-	private static Bitmap bitmap_lives;
-	private static Bitmap bitmap_balls;
+	private static transient Bitmap bitmap_level;
+	private static transient Bitmap bitmap_lives;
+	private transient Bitmap bitmap_balls;
 	
 	private List<IEntity2D> killersEntities_forPlayer;
 	private List<IEntity2D> killersEntities_forChallengers;
@@ -60,13 +62,19 @@ public class World_Gravity extends World {
 	}
 	
 	
-	private static void initBitmaps() {
+	public void initBitmaps() {
 		
 		System.out.println("!EXPENSIVE OP: RE-INIT BITMAPS OF THE WORLD");
 		
 		bitmap_level   	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_level);
 		bitmap_lives 	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_heart);
-		bitmap_balls   	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_asteroid_blue_green);
+
+		IConfigurationSpaceObjects objects_config = ConfigurationUtils_SpaceObjects.getConfigByID(((UserSettings_Gravity) Application_Base.getInstance().getUserSettings()).cfg_id_space_objects);
+		bitmap_balls   	= BitmapUtils.fromResource(Application_Base.getInstance(), objects_config.getBitmapResourceID());
+		bitmap_balls 	= BitmapUtils.createScaledBitmap(bitmap_balls,
+				(int) (getPlayerEntity().getEnvelop().right - getPlayerEntity().getEnvelop().left),
+				(int) (getPlayerEntity().getEnvelop().bottom - getPlayerEntity().getEnvelop().top));
+
 	}
 
 
@@ -154,9 +162,9 @@ public class World_Gravity extends World {
 	protected List<IEntity2D> getKillersEntities_forChallengers() {
 		return killersEntities_forChallengers;
 	}
-	
-	
-	public static Bitmap getBitmap_level() {
+
+
+	public Bitmap getBitmap_level() {
 		if (bitmap_level == null || bitmap_level.isRecycled()) {
 			initBitmaps();
 		}
@@ -164,7 +172,7 @@ public class World_Gravity extends World {
 	}
 	
 	
-	public static Bitmap getBitmap_balls() {
+	public Bitmap getBitmap_balls() {
 		if (bitmap_balls == null || bitmap_balls.isRecycled()) {
 			initBitmaps();
 		}
@@ -172,7 +180,7 @@ public class World_Gravity extends World {
 	}
 	
 	
-	public static Bitmap getBitmap_lives() {
+	public Bitmap getBitmap_lives() {
 		if (bitmap_lives == null || bitmap_lives.isRecycled()) {
 			initBitmaps();
 		}

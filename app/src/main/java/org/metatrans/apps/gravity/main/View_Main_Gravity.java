@@ -106,14 +106,14 @@ public class View_Main_Gravity extends View_Main_Base {
 		canvas.drawRect(rect_stars, default_paint);
 		
 		int level = Application_Base.getInstance().getUserSettings().modeID;
-		canvas.drawBitmap(World_Gravity.getBitmap_level(), null, rect_level_icon, default_paint);
+		canvas.drawBitmap(getWorld().getBitmap_level(), null, rect_level_icon, default_paint);
 		textarea_level.setColour_Text(Color.GREEN);
 		textarea_level.setText("" + level + " ");
 		textarea_level.draw(canvas);
 		
 		int stars = getObjectsLeft();
 
-		canvas.drawBitmap(World_Gravity.getBitmap_balls(), null, rect_stars_icon, default_paint);
+		canvas.drawBitmap(getWorld().getBitmap_balls(), null, rect_stars_icon, default_paint);
 
 		if (stars < stars_count_old) {
 
@@ -133,7 +133,7 @@ public class View_Main_Gravity extends View_Main_Base {
 		stars_count_old = stars;
 
 		int lives = Application_2D_Base.getInstance().getGameData().count_lives;
-		canvas.drawBitmap(World_Gravity.getBitmap_lives(), null, rect_lives_icon, default_paint);
+		canvas.drawBitmap(getWorld().getBitmap_lives(), null, rect_lives_icon, default_paint);
 		textarea_lives.setColour_Text(Color.GREEN);
 		textarea_lives.setText("x " + lives + " ");
 		textarea_lives.draw(canvas);

@@ -158,15 +158,7 @@ public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenge
 	@Override
 	public Bitmap getBitmap() {
 
-		if (bitmap == null) {
-
-			bitmap = BitmapUtils.fromResource(Application_2D_Base.getInstance(), R.drawable.gravity_asteroid_blue_green);
-			//bitmap = BitmapUtils.fromResource(Application_2D_Base.getInstance(), R.drawable.gravity_asteroid_gray);
-			//bitmap = BitmapUtils.fromResource(Application_2D_Base.getInstance(), R.drawable.gravity_asteroid_blue);
-			bitmap = BitmapUtils.createScaledBitmap(bitmap, (int) (getEnvelop().right - getEnvelop().left), (int) (getEnvelop().bottom - getEnvelop().top));
-		}
-
-		return bitmap;
+		return getWorld().getBitmap_balls();
 	}
 
 
