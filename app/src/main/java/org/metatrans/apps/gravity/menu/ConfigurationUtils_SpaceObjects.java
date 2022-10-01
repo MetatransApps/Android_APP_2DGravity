@@ -20,9 +20,9 @@ public class ConfigurationUtils_SpaceObjects {
 
 		ALL_CFGs = new org.metatrans.apps.gravity.menu.IConfigurationSpaceObjects[4];
 
-		ALL_CFGs[0] = new Config_SpaceObjects(START_INDEX + 0, R.string.asteroid_green, R.drawable.gravity_asteroid_blue_green);
+		ALL_CFGs[0] = new Config_SpaceObjects(START_INDEX + 0, R.string.asteroid_blue, R.drawable.gravity_asteroid_blue);
 		ALL_CFGs[1] = new Config_SpaceObjects(START_INDEX + 1, R.string.asteroid_gray, R.drawable.gravity_asteroid_gray);
-		ALL_CFGs[2] = new Config_SpaceObjects(START_INDEX + 2, R.string.asteroid_blue, R.drawable.gravity_asteroid_blue);
+		ALL_CFGs[2] = new Config_SpaceObjects(START_INDEX + 2, R.string.asteroid_green, R.drawable.gravity_asteroid_blue_green);
 	}
 
 	private static final Map<Integer, org.metatrans.apps.gravity.menu.IConfigurationSpaceObjects> mapping = new HashMap<Integer, IConfigurationSpaceObjects>();
