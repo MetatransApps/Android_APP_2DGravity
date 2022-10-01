@@ -1,11 +1,8 @@
-1.0.6 [PAID] (22.05.2022) 
-Compliance with Google Play ads policy - ads are labeled with ads text. Bugfixing.
+1.0.5 [PAID] (01.10.2022) 
+New graphical design of the game asets - asteroids and black hole
 
-1.1.2 (22.05.2022) 
-Compliance with Google Play ads policy - ads are labeled with ads text. Bugfixing.
-
-1.0.5 (27.10.2021) 
-Long awaited big investment in User Interface and User Experience. We hope you enjoy the new design!
+1.0.9 (01.10.2022) 
+New graphical design of the game asets - asteroids and black hole
 
 1.0.3 [PAID] (27.10.2021) 
 Long awaited big investment in User Interface and User Experience. We hope you enjoy the new design!

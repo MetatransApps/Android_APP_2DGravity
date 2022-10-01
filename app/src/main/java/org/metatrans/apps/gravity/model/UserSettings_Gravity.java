@@ -33,8 +33,7 @@ public class UserSettings_Gravity extends UserSettings {
 	}
 
 
-	@Override
-	protected void fixFields(String op) {
+	private void fixFields(String op) {
 
 		if (cfg_id_space_objects == 0 || model_version == MODEL_VERSION_1) {
 
