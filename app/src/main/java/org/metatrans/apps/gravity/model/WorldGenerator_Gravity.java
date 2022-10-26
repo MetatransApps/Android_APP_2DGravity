@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import org.metatrans.apps.gravity.cfg.world.IConfigurationWorld;
 import org.metatrans.apps.gravity.model.entities.Entity2D_Challenger_Gravity;
+import org.metatrans.apps.gravity.model.entities.Entity2D_Terrain_Gravity;
 import org.metatrans.apps.gravity.model.entities.Entity2D_Player_Gravity;
 import org.metatrans.commons.app.Application_Base;
 import org.metatrans.commons.cfg.colours.ConfigurationUtils_Colours;
@@ -42,6 +43,13 @@ public class WorldGenerator_Gravity {
 
 		float CELL_MULT = 5f;
 
+		world.addEntity(
+				new Entity2D_Terrain_Gravity(
+					world,
+					new RectF(main_width / 2 + 0, main_height / 2 + 0, main_width / 2 + main_width, main_height / 2 + main_height)
+				)
+		);
+
 		world.addEntity(new Entity2D_Player_Gravity(world,
 				new RectF(main_width - CELL_MULT * cell_size,
 						main_height - CELL_MULT * cell_size,
@@ -67,7 +75,7 @@ public class WorldGenerator_Gravity {
 			
 			float mass = MAX_MASS;//Math.max(1, rnd.nextInt(MAX_MASS));
 			
-			float radius = (int) (cell_size / 1.5f);
+			float radius = (int) ((138f / 256f) * cell_size / (1.5f));
 			RectF rect = new RectF(x, y, x + 2 * radius, y + 2 * radius);
 
 			world.addEntity(new Entity2D_Challenger_Gravity(world,

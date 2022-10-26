@@ -65,7 +65,7 @@ public class Activity_Menu_SpaceObjects extends Activity_Base {
 				continue;
 			}
 
-			int bitmap_id = objects_cfg.getBitmapResourceID();
+			int bitmap_id = objects_cfg.getBitmapResourceID_Icon();
 
 			Bitmap old = null;
 

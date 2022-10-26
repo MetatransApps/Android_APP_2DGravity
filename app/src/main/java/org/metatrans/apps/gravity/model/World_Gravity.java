@@ -30,7 +30,8 @@ public class World_Gravity extends World {
 	private static transient Bitmap bitmap_level;
 	private static transient Bitmap bitmap_lives;
 	private transient Bitmap bitmap_balls;
-	
+	private transient Bitmap bitmap_background;
+
 	private List<IEntity2D> killersEntities_forPlayer;
 	private List<IEntity2D> killersEntities_forChallengers;
 	
@@ -72,6 +73,7 @@ public class World_Gravity extends World {
 				(int) (getPlayerEntity().getEnvelop().right - getPlayerEntity().getEnvelop().left),
 				(int) (getPlayerEntity().getEnvelop().bottom - getPlayerEntity().getEnvelop().top));
 
+		bitmap_background = BitmapUtils.fromResource(Application_Base.getInstance(), objects_config.getBitmapResourceID_Background());
 	}
 
 
@@ -175,7 +177,15 @@ public class World_Gravity extends World {
 		}
 		return bitmap_balls;
 	}
-	
+
+
+	public Bitmap getBitmap_background() {
+		if (bitmap_background == null || bitmap_background.isRecycled()) {
+			initBitmaps();
+		}
+		return bitmap_background;
+	}
+
 	
 	public Bitmap getBitmap_lives() {
 		if (bitmap_lives == null || bitmap_lives.isRecycled()) {

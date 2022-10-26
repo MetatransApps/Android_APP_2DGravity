@@ -6,6 +6,6 @@
 	<string name="space_objects">Space Objects</string>
 	<string name="asteroid_green">Green Asteroids</string>
 	<string name="asteroid_gray">Gray Asteroids</string>
-	<string name="asteroid_blue">Blue Asteroids</string>
-
+	<string name="asteroid_blue_1">Blue Asteroids 1</string>
+	<string name="asteroid_blue_2">Blue Asteroids 2</string>
 </resources>

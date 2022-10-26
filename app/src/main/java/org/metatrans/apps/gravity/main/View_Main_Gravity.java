@@ -98,7 +98,7 @@ public class View_Main_Gravity extends View_Main_Base {
 	public void onDraw(Canvas canvas) {
 		
 		super.onDraw(canvas);
-		
+
 		default_paint.setColor(Color.BLACK);
 		
 		canvas.drawRect(rect_level, default_paint);

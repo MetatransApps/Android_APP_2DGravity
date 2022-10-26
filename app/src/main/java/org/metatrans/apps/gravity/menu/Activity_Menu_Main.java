@@ -93,7 +93,7 @@ public class Activity_Menu_Main extends Activity_Menu_Main_Base {
 			@Override
 			public int getIconResID() {
 				return ConfigurationUtils_SpaceObjects.getConfigByID(((UserSettings_Gravity)
-						((Application_Base) getApplication()).getUserSettings()).cfg_id_space_objects).getBitmapResourceID();
+						((Application_Base) getApplication()).getUserSettings()).cfg_id_space_objects).getBitmapResourceID_Icon();
 			}
 
 

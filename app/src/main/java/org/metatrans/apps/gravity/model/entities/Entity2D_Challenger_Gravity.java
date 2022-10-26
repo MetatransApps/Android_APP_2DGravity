@@ -33,6 +33,7 @@ public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenge
 	private float max_speed;
 	private float massOfPointer;
 
+	private static transient Bitmap bitmap_org;
 	private static transient Bitmap bitmap;
 
 
@@ -158,7 +159,18 @@ public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenge
 	@Override
 	public Bitmap getBitmap() {
 
-		return getWorld().getBitmap_balls();
+		Bitmap latest = getWorld().getBitmap_balls();
+
+		if (bitmap_org != latest) {
+
+			bitmap_org = latest;
+
+			bitmap = BitmapUtils.createScaledBitmap(bitmap_org,
+					(int) (getEnvelop_ForDraw().right - getEnvelop_ForDraw().left),
+					(int) (getEnvelop_ForDraw().bottom - getEnvelop_ForDraw().top));
+		}
+
+		return bitmap;
 	}
 
 
@@ -174,7 +186,9 @@ public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenge
 
 		Bitmap bitmap = getBitmap();
 
-		if (bitmap == null) {
+		c.drawBitmap(bitmap, null, getEnvelop_ForDraw(), null);
+
+		/*if (bitmap == null) {
 
 			getPaint().setColor(ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID).getColour_Square_White());
 			getPaint().setAlpha(255);
@@ -189,9 +203,10 @@ public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenge
 
 			//if (envelop != null) {
 
-				c.drawBitmap(bitmap, null, envelop, null);
+				c.drawBitmap(bitmap, null, getEnvelop_ForDraw(), null);
 			//}
 		}
+		*/
 	}
 	
 	
