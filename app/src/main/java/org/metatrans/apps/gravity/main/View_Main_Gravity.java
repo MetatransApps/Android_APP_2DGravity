@@ -43,7 +43,7 @@ public class View_Main_Gravity extends View_Main_Base {
 
 	private int stars_count_old 		= getObjectsLeft();
 
-	private static final Float ZEOR_F 	= 0f;
+	private static final Float ZERO_F 	= 0f;
 
 
 	public View_Main_Gravity(Activity_Main_Base2D activity) {
@@ -194,6 +194,6 @@ public class View_Main_Gravity extends View_Main_Base {
 		}
 
 		getWorld().setPointer(null, null);
-		//getWorld().setPointer(ZEOR_F, ZEOR_F);
+		//getWorld().setPointer(ZERO_F, ZERO_F);
 	}
 }

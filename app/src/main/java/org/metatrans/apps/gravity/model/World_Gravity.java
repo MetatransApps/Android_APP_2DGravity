@@ -13,6 +13,7 @@ import org.metatrans.commons.graphics2d.model.World;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Bullet;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Challenger;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Moving;
+import org.metatrans.commons.graphics2d.model.entities.I2DBitmapCache;
 import org.metatrans.commons.graphics2d.model.entities.IEntity2D;
 import org.metatrans.commons.ui.utils.BitmapUtils;
 
@@ -58,22 +59,25 @@ public class World_Gravity extends World {
 		
 		super.update();		
 	}
-	
+
+
+	@Override
+	protected I2DBitmapCache createBitmapCache() {
+
+		return BitmapCache_Gravity.getStaticInstance(BitmapCache_Gravity.BITMAP_ID_COMMON);
+	}
+
 	
 	public void initBitmaps() {
 		
 		System.out.println("!EXPENSIVE OP: RE-INIT BITMAPS OF THE WORLD");
 		
-		bitmap_level   	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_level);
-		bitmap_lives 	= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_heart);
+		bitmap_level   			= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_level);
+		bitmap_lives 			= BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.ic_heart);
 
 		IConfigurationSpaceObjects objects_config = ConfigurationUtils_SpaceObjects.getConfigByID(((UserSettings_Gravity) Application_Base.getInstance().getUserSettings()).cfg_id_space_objects);
-		bitmap_balls   	= BitmapUtils.fromResource(Application_Base.getInstance(), objects_config.getBitmapResourceID());
-		bitmap_balls 	= BitmapUtils.createScaledBitmap(bitmap_balls,
-				(int) (getPlayerEntity().getEnvelop().right - getPlayerEntity().getEnvelop().left),
-				(int) (getPlayerEntity().getEnvelop().bottom - getPlayerEntity().getEnvelop().top));
-
-		bitmap_background = BitmapUtils.fromResource(Application_Base.getInstance(), objects_config.getBitmapResourceID_Background());
+		bitmap_balls   		= getBitmapCache().get(objects_config.getBitmapResourceID());
+		bitmap_background 	= getBitmapCache().get(objects_config.getBitmapResourceID_Background());
 	}
 
 
@@ -169,8 +173,8 @@ public class World_Gravity extends World {
 		}
 		return bitmap_level;
 	}
-	
-	
+
+
 	public Bitmap getBitmap_balls() {
 		if (bitmap_balls == null || bitmap_balls.isRecycled()) {
 			initBitmaps();

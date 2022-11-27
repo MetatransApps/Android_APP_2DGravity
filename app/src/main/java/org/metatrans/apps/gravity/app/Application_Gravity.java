@@ -7,6 +7,7 @@ import org.metatrans.apps.gravity.cfg.world.ConfigurationUtils_Level;
 import org.metatrans.apps.gravity.events.EventsManager_Gravity;
 import org.metatrans.apps.gravity.lib.BuildConfig;
 import org.metatrans.apps.gravity.main.Activity_Result;
+import org.metatrans.apps.gravity.model.BitmapCache_Gravity;
 import org.metatrans.apps.gravity.model.GameData_Gravity;
 import org.metatrans.apps.gravity.model.UserSettings_Gravity;
 import org.metatrans.apps.gravity.model.WorldGenerator_Gravity;
@@ -19,7 +20,9 @@ import org.metatrans.commons.engagement.ILeaderboardsProvider;
 import org.metatrans.commons.engagement.leaderboards.LeaderboardsProvider_Base;
 import org.metatrans.commons.events.api.IEventsManager;
 import org.metatrans.commons.graphics2d.app.Application_2D_Base;
+import org.metatrans.commons.graphics2d.model.BitmapCache_Base;
 import org.metatrans.commons.graphics2d.model.IWorld;
+import org.metatrans.commons.graphics2d.model.entities.I2DBitmapCache;
 import org.metatrans.commons.model.GameData_Base;
 import org.metatrans.commons.model.UserSettings_Base;
 import org.metatrans.commons.ui.utils.DebugUtils;
@@ -44,6 +47,10 @@ public abstract class Application_Gravity extends Application_2D_Base {
 		ConfigurationUtils_Colours.getAll();
 		
 		ConfigurationUtils_Base_MenuMain.createInstance();
+
+		BitmapCache_Base.STATIC = new BitmapCache_Gravity(I2DBitmapCache.BITMAP_ID_STATIC);
+
+		BitmapCache_Base.STATIC.initBitmaps();
 	}
 	
 	
@@ -63,7 +70,10 @@ public abstract class Application_Gravity extends Application_2D_Base {
 	
 	@Override
 	public IWorld createNewWorld() {
-		return WorldGenerator_Gravity.generate(this, ConfigurationUtils_Level.getInstance().getConfigByID(Application_Base.getInstance().getUserSettings().modeID));
+
+		return WorldGenerator_Gravity.generate(this,
+				ConfigurationUtils_Level.getInstance().getConfigByID(Application_Base.getInstance().getUserSettings().modeID)
+		);
 	}
 	
 	

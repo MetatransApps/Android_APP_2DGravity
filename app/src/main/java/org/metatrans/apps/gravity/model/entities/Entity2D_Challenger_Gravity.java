@@ -3,24 +3,22 @@ package org.metatrans.apps.gravity.model.entities;
 
 import java.util.List;
 
-import org.metatrans.apps.gravity.lib.R;
+import org.metatrans.apps.gravity.menu.ConfigurationUtils_SpaceObjects;
+import org.metatrans.apps.gravity.menu.IConfigurationSpaceObjects;
+import org.metatrans.apps.gravity.model.UserSettings_Gravity;
 import org.metatrans.apps.gravity.model.World_Gravity;
 import org.metatrans.commons.app.Application_Base;
-import org.metatrans.commons.cfg.colours.ConfigurationUtils_Colours;
-import org.metatrans.commons.graphics2d.app.Application_2D_Base;
 import org.metatrans.commons.graphics2d.model.World;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Challenger;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Ground;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Moving;
 import org.metatrans.commons.graphics2d.model.entities.IEntity2D;
-import org.metatrans.commons.ui.utils.BitmapUtils;
 
 import android.graphics.Bitmap;
-import android.graphics.Canvas;
 import android.graphics.RectF;
 
 
-public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenger {
+public class Entity2D_Challenger_Gravity extends Entity2D_Challenger {
 	
 	
 	private static final long serialVersionUID = 5416967203188382917L;
@@ -33,20 +31,22 @@ public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenge
 	private float max_speed;
 	private float massOfPointer;
 
-	private static transient Bitmap bitmap_org;
-	private static transient Bitmap bitmap;
-
 
 	public Entity2D_Challenger_Gravity(World _world,
 			RectF _evelop,
 			List<Entity2D_Ground> _blockerEntities,
 			List<? extends IEntity2D> _killerEntities,
-			float x_player, float y_player,
 			List<? extends Entity2D_Moving> _massObjects,
-			float _mass, float _max_speed, float _massOfPointer) {
+			float _mass, float _max_speed, float _massOfPointer,
+									   int bitmap_id) {
 
-		super(_world, _evelop, _blockerEntities, _killerEntities);
-		
+		super(_world, _evelop, _blockerEntities, (List<? extends IEntity2D>) _killerEntities,
+				bitmap_id, 0);
+
+		int rotation_step = (int) (15 - (30 * Math.random()));
+
+		setRotationStep(rotation_step);
+
 		massObjects = _massObjects;
 		mass = _mass;
 		max_speed = _max_speed;
@@ -54,14 +54,32 @@ public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenge
 		
 		setSpeed((Math.random() < 0.5 ? 1f : -1f) *_world.getMaxSpeed_CHALLENGER(), (Math.random() < 0.5 ? 1f : -1f) * _world.getMaxSpeed_CHALLENGER());
 	}
-	
-	
+
+
+	@Override
+	public Bitmap getBitmap() {
+
+		IConfigurationSpaceObjects objects_config = ConfigurationUtils_SpaceObjects.getConfigByID(((UserSettings_Gravity) Application_Base.getInstance().getUserSettings()).cfg_id_space_objects);
+
+		bitmap_id = objects_config.getBitmapResourceID();
+
+		return super.getBitmap();
+	}
+
+
+	@Override
+	protected boolean hasCustomEnvelopForDraw() {
+
+		return true;
+	}
+
+
 	@Override
 	public void nextMoment(float takts) {
 		
 		float x_accumulated = 0;
 		float y_accumulated = 0;
-		
+
 		for (Entity2D_Moving object: massObjects) {
 			if (object instanceof Entity2D_Challenger_Gravity) {
 				Entity2D_Challenger_Gravity massObject = (Entity2D_Challenger_Gravity)object;
@@ -157,61 +175,15 @@ public class Entity2D_Challenger_Gravity<transparent> extends Entity2D_Challenge
 
 
 	@Override
-	public Bitmap getBitmap() {
-
-		Bitmap latest = getWorld().getBitmap_balls();
-
-		if (bitmap_org != latest) {
-
-			bitmap_org = latest;
-
-			bitmap = BitmapUtils.createScaledBitmap(bitmap_org,
-					(int) (getEnvelop_ForDraw().right - getEnvelop_ForDraw().left),
-					(int) (getEnvelop_ForDraw().bottom - getEnvelop_ForDraw().top));
-		}
-
-		return bitmap;
-	}
-
-
-	@Override
 	protected boolean supportsFeeding() {
 
 		return false;
 	}
 
-
-	@Override
-	public void draw(Canvas c) {
-
-		Bitmap bitmap = getBitmap();
-
-		c.drawBitmap(bitmap, null, getEnvelop_ForDraw(), null);
-
-		/*if (bitmap == null) {
-
-			getPaint().setColor(ConfigurationUtils_Colours.getConfigByID(Application_Base.getInstance().getUserSettings().uiColoursID).getColour_Square_White());
-			getPaint().setAlpha(255);
-
-			c.drawCircle(getEnvelop().left + (getEnvelop().right - getEnvelop().left) / 2,
-					getEnvelop().top + (getEnvelop().bottom - getEnvelop().top) / 2,
-					(getEnvelop().right - getEnvelop().left) / 2,
-					getPaint());
-		} else {
-
-			RectF envelop = getEnvelop_ForDraw();
-
-			//if (envelop != null) {
-
-				c.drawBitmap(bitmap, null, getEnvelop_ForDraw(), null);
-			//}
-		}
-		*/
-	}
-	
 	
 	@Override
 	protected World_Gravity getWorld() {
+
 		return (World_Gravity) super.getWorld();
 	}
 }

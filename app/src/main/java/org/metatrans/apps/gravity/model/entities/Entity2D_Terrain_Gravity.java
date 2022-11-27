@@ -2,10 +2,12 @@ package org.metatrans.apps.gravity.model.entities;
 
 
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.graphics.RectF;
 
-import org.metatrans.apps.gravity.lib.R;
-import org.metatrans.apps.gravity.model.World_Gravity;
+import org.metatrans.apps.gravity.menu.ConfigurationUtils_SpaceObjects;
+import org.metatrans.apps.gravity.menu.IConfigurationSpaceObjects;
+import org.metatrans.apps.gravity.model.UserSettings_Gravity;
 import org.metatrans.commons.app.Application_Base;
 import org.metatrans.commons.graphics2d.model.IWorld;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Ground;
@@ -19,39 +21,45 @@ public class Entity2D_Terrain_Gravity extends Entity2D_Ground {
     private static final long serialVersionUID = -434579107317800391L;
 
 
-    private transient Bitmap bitmap_background_org = null;
-    private transient Bitmap bitmap_background = null;
+    private transient Bitmap bitmap_background;
+    private transient Bitmap bitmap_latest_backup;
 
 
-    public Entity2D_Terrain_Gravity(IWorld world, RectF _evelop) {
-        super(world, _evelop, IEntity2D.SUBTYPE_GROUND_EMPTY, 0, 0);
+    public Entity2D_Terrain_Gravity(IWorld world, RectF _envelop) {
+
+        super(world, _envelop, IEntity2D.SUBTYPE_GROUND_EMPTY, 0, 0);
+    }
+
+
+    protected boolean hasCustomEnvelopForDraw() {
+
+        return false;
     }
 
 
     @Override
     public Bitmap getBitmap() {
 
-        Bitmap latest = ((World_Gravity)world).getBitmap_background();
 
-        if (bitmap_background_org != latest) {
+        UserSettings_Gravity userSettings_gravity = (UserSettings_Gravity) Application_Base.getInstance().getUserSettings();
 
-            bitmap_background_org = latest;
+        IConfigurationSpaceObjects objects_config = ConfigurationUtils_SpaceObjects.getConfigByID(userSettings_gravity.cfg_id_space_objects);
 
-            bitmap_background = BitmapUtils.createScaledBitmap(bitmap_background_org,
+
+        Bitmap latest = getWorld().getBitmapCache().get(objects_config.getBitmapResourceID_Background());
+
+        if (bitmap_latest_backup != latest) {
+
+            bitmap_latest_backup = latest;
+
+            bitmap_background = BitmapUtils.createScaledBitmap(bitmap_latest_backup,
                     (int) (getEnvelop_ForDraw().right - getEnvelop_ForDraw().left),
                     (int) (getEnvelop_ForDraw().bottom - getEnvelop_ForDraw().top));
         }
 
+
         return bitmap_background;
     }
-
-
-
-
-    /*protected boolean getFlag1() {
-
-        return true;
-    }*/
 
 
     @Override
