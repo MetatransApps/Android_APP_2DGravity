@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 
+import org.metatrans.apps.gravity.model.BitmapCache_Gravity;
 import org.metatrans.apps.gravity.model.UserSettings_Gravity;
 import org.metatrans.apps.gravity.model.World_Gravity;
 import org.metatrans.commons.Activity_Base;
@@ -67,14 +68,8 @@ public class Activity_Menu_SpaceObjects extends Activity_Base {
 
 			int bitmap_id = objects_cfg.getBitmapResourceID_Icon();
 
-			Bitmap old = null;
-
-			Bitmap bitmap1 = BitmapUtils.fromResource(this, bitmap_id);
-			old = bitmap1;
-			bitmap1 = BitmapUtils.createScaledBitmap(bitmap1, getIconSize(), getIconSize());
-			BitmapUtils.recycle(bitmap1, old);
-
-			Bitmap bitmap = bitmap1;
+			Bitmap bitmap = BitmapCache_Gravity.STATIC.getInstance(BitmapCache_Gravity.BITMAP_ID_COMMON).get(bitmap_id);
+			bitmap = BitmapUtils.createScaledBitmap(bitmap, getIconSize(), getIconSize());
 
 			Drawable drawable = BitmapUtils.createDrawable(this, bitmap);
 			

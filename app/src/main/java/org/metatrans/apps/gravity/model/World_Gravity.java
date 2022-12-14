@@ -13,8 +13,8 @@ import org.metatrans.commons.graphics2d.model.World;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Bullet;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Challenger;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Moving;
-import org.metatrans.commons.graphics2d.model.entities.I2DBitmapCache;
 import org.metatrans.commons.graphics2d.model.entities.IEntity2D;
+import org.metatrans.commons.model.I2DBitmapCache;
 import org.metatrans.commons.ui.utils.BitmapUtils;
 
 import android.content.Context;

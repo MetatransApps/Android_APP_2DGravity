@@ -68,13 +68,6 @@ public class Entity2D_Challenger_Gravity extends Entity2D_Challenger {
 
 
 	@Override
-	protected boolean hasCustomEnvelopForDraw() {
-
-		return true;
-	}
-
-
-	@Override
 	public void nextMoment(float takts) {
 		
 		float x_accumulated = 0;

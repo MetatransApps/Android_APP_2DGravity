@@ -10,7 +10,6 @@ import org.metatrans.apps.gravity.model.entities.Entity2D_Challenger_Gravity;
 import org.metatrans.apps.gravity.model.entities.Entity2D_Terrain_Gravity;
 import org.metatrans.apps.gravity.model.entities.Entity2D_Player_Gravity;
 import org.metatrans.commons.app.Application_Base;
-import org.metatrans.commons.cfg.colours.ConfigurationUtils_Colours;
 import org.metatrans.commons.graphics2d.model.World;
 import org.metatrans.commons.graphics2d.model.entities.Entity2D_Moving;
 import org.metatrans.commons.graphics2d.model.entities.IEntity2D;
@@ -59,9 +58,9 @@ public class WorldGenerator_Gravity {
 			x = (int) Math.max(asteroids_size, x);
 			y = (int) Math.max(asteroids_size, y);
 
-			float mass = MAX_MASS;//Math.max(1, rnd.nextInt(MAX_MASS));
+			float mass = MAX_MASS; //Math.max(1, rnd.nextInt(MAX_MASS));
 			
-			float radius = (int) ((138f / 256f) * cell_size / (1.5f));
+			float radius = cell_size / 2;
 
 			RectF rect = new RectF(x, y, x + 2 * radius, y + 2 * radius);
 
@@ -82,6 +81,21 @@ public class WorldGenerator_Gravity {
 		}
 
 
+		world.addEntity(
+
+				new Entity2D_Terrain_Gravity(
+
+						world
+				)
+		);
+
+
+		for (Entity2D_Moving moving: world.getMovingEntities()) {
+
+			moving.setWorldSize(world.get_WORLD_SIZE_X(), world.get_WORLD_SIZE_Y());
+		}
+
+
 		float player_scale = 10f;
 
 		world.addEntity(
@@ -89,6 +103,7 @@ public class WorldGenerator_Gravity {
 				new Entity2D_Player_Gravity(
 
 						world,
+
 						new RectF(
 								spaceScaleFactor * main_width / 2 - player_scale * cell_size / 2,
 								spaceScaleFactor * main_height / 2 - player_scale * cell_size / 2,
@@ -99,28 +114,6 @@ public class WorldGenerator_Gravity {
 						new ArrayList<IEntity2D>()
 				)
 		);
-
-
-		world.addEntity(
-
-				new Entity2D_Terrain_Gravity(
-
-						world,
-						/*new RectF(
-								spaceScaleFactor * main_width / 2 - main_width / 2,
-								spaceScaleFactor * main_height / 2 - main_height / 2,
-								spaceScaleFactor * main_width / 2 + main_width / 2,
-								spaceScaleFactor * main_height / 2 + main_height / 2
-						)*/
-						world.getCamera()
-				)
-		);
-
-
-		for (Entity2D_Moving moving: world.getMovingEntities()) {
-
-			moving.setWorldSize(world.get_WORLD_SIZE_X(), world.get_WORLD_SIZE_Y());
-		}
 
 
 		return world;

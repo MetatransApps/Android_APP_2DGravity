@@ -21,10 +21,10 @@ public class ConfigurationUtils_SpaceObjects {
 
 		ALL_CFGs = new org.metatrans.apps.gravity.menu.IConfigurationSpaceObjects[4];
 
-		ALL_CFGs[0] = new Config_SpaceObjects(START_INDEX + 0, R.string.asteroid_blue_1, BitmapCache_Gravity.BITMAP_ID_ASTEROID_BLUE, BitmapCache_Gravity.BITMAP_ID_BACKGROUND_PURPLE, R.drawable.gravity_icon_purple);
-		ALL_CFGs[1] = new Config_SpaceObjects(START_INDEX + 1, R.string.asteroid_blue_2, BitmapCache_Gravity.BITMAP_ID_ASTEROID_BLUE, BitmapCache_Gravity.BITMAP_ID_BACKGROUND_PING, R.drawable.gravity_icon_ping);
-		ALL_CFGs[2] = new Config_SpaceObjects(START_INDEX + 2, R.string.asteroid_green, BitmapCache_Gravity.BITMAP_ID_ASTEROID_GREEN, BitmapCache_Gravity.BITMAP_ID_BACKGROUND_GREEN, R.drawable.gravity_icon_green);
-		ALL_CFGs[3] = new Config_SpaceObjects(START_INDEX + 3, R.string.asteroid_gray, BitmapCache_Gravity.BITMAP_ID_ASTEROID_GRAY, BitmapCache_Gravity.BITMAP_ID_BACKGROUND_RED, R.drawable.gravity_icon_red);
+		ALL_CFGs[0] = new Config_SpaceObjects(START_INDEX + 0, R.string.asteroid_blue_1, BitmapCache_Gravity.BITMAP_ID_ASTEROID_BLUE, BitmapCache_Gravity.BITMAP_ID_BACKGROUND_PURPLE, BitmapCache_Gravity.BITMAP_ID_ICON_PURPLE);
+		ALL_CFGs[1] = new Config_SpaceObjects(START_INDEX + 1, R.string.asteroid_blue_2, BitmapCache_Gravity.BITMAP_ID_ASTEROID_BLUE, BitmapCache_Gravity.BITMAP_ID_BACKGROUND_PING, BitmapCache_Gravity.BITMAP_ID_ICON_PING);
+		ALL_CFGs[2] = new Config_SpaceObjects(START_INDEX + 2, R.string.asteroid_green, BitmapCache_Gravity.BITMAP_ID_ASTEROID_GREEN, BitmapCache_Gravity.BITMAP_ID_BACKGROUND_GREEN, BitmapCache_Gravity.BITMAP_ID_ICON_GREEN);
+		ALL_CFGs[3] = new Config_SpaceObjects(START_INDEX + 3, R.string.asteroid_gray, BitmapCache_Gravity.BITMAP_ID_ASTEROID_GRAY, BitmapCache_Gravity.BITMAP_ID_BACKGROUND_RED, BitmapCache_Gravity.BITMAP_ID_ICON_RED);
 	}
 
 	private static final Map<Integer, org.metatrans.apps.gravity.menu.IConfigurationSpaceObjects> mapping = new HashMap<Integer, IConfigurationSpaceObjects>();

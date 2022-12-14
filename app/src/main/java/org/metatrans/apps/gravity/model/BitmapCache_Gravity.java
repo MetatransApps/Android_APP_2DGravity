@@ -3,7 +3,7 @@ package org.metatrans.apps.gravity.model;
 
 import org.metatrans.apps.gravity.lib.R;
 import org.metatrans.commons.app.Application_Base;
-import org.metatrans.commons.graphics2d.model.BitmapCache_Base;
+import org.metatrans.commons.model.BitmapCache_Base;
 import org.metatrans.commons.ui.utils.BitmapUtils;
 
 
@@ -22,6 +22,10 @@ public class BitmapCache_Gravity extends BitmapCache_Base {
 	public static final int BITMAP_ID_BACKGROUND_GREEN			= 150;
 	public static final int BITMAP_ID_BACKGROUND_RED			= 170;
 
+	public static final int BITMAP_ID_ICON_PURPLE				= 200;
+	public static final int BITMAP_ID_ICON_PING					= 210;
+	public static final int BITMAP_ID_ICON_GREEN				= 220;
+	public static final int BITMAP_ID_ICON_RED					= 230;
 
 	public BitmapCache_Gravity(Integer cache_id) {
 
@@ -68,5 +72,19 @@ public class BitmapCache_Gravity extends BitmapCache_Base {
 				BITMAP_ID_BACKGROUND_RED,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_red),
 				false);
+
+
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+				BITMAP_ID_ICON_PURPLE,
+				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_icon_purple));
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+				BITMAP_ID_ICON_PING,
+				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_icon_ping));
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+				BITMAP_ID_ICON_GREEN,
+				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_icon_green));
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+				BITMAP_ID_ICON_RED,
+				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_icon_red));
 	}
 }

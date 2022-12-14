@@ -35,13 +35,6 @@ public class Entity2D_Player_Gravity extends Entity2D_Player {
 
 
 	@Override
-	protected boolean hasCustomEnvelopForDraw() {
-
-		return true;
-	}
-
-
-	@Override
 	public RectF getEnvelop_ForDraw() {
 
 

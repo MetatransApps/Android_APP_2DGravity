@@ -2,7 +2,6 @@ package org.metatrans.apps.gravity.model.entities;
 
 
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.RectF;
 
 import org.metatrans.apps.gravity.menu.ConfigurationUtils_SpaceObjects;
@@ -25,15 +24,16 @@ public class Entity2D_Terrain_Gravity extends Entity2D_Ground {
     private transient Bitmap bitmap_latest_backup;
 
 
-    public Entity2D_Terrain_Gravity(IWorld world, RectF _envelop) {
+    public Entity2D_Terrain_Gravity(IWorld world) {
 
-        super(world, _envelop, IEntity2D.SUBTYPE_GROUND_EMPTY, 0, 0);
+        super(world, null, IEntity2D.SUBTYPE_GROUND_EMPTY, 0, 0);
     }
 
 
-    protected boolean hasCustomEnvelopForDraw() {
+    @Override
+    public RectF getEnvelop() {
 
-        return false;
+        return getWorld().getCamera();
     }
 
 
@@ -66,14 +66,5 @@ public class Entity2D_Terrain_Gravity extends Entity2D_Ground {
     public int getBackgroundColour() {
 
         return Application_Base.getInstance().getColoursCfg().getColour_Square_White();
-    }
-
-
-    @Override
-    public int getBitmapTransparency() {
-
-        //return 255;
-        return (int) 199.111110912;
-        //return (int) 215.333;
     }
 }
