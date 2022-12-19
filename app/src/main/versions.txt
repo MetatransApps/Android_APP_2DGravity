@@ -1,3 +1,9 @@
+1.0.7 [PAID] (18.12.2022) 
+Optimizations regarding frames per second (FPS) rate and decreasing even more the app crash rate (bugfixing)
+
+1.1.4 (18.12.2022) 
+Optimizations regarding frames per second (FPS) rate and decreasing even more the app crash rate (bugfixing)
+
 1.0.6 [PAID] (26.10.2022) 
 New graphical design of the game assets - space backgrounds
 
