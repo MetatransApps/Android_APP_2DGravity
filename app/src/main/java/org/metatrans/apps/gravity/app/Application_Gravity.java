@@ -2,7 +2,6 @@ package org.metatrans.apps.gravity.app;
 
 
 import org.metatrans.apps.gravity.achievements.AchievementsManager_Gravity;
-import org.metatrans.apps.gravity.cfg.app.AppConfig_Gravity;
 import org.metatrans.apps.gravity.cfg.world.ConfigurationUtils_Level;
 import org.metatrans.apps.gravity.events.EventsManager_Gravity;
 import org.metatrans.apps.gravity.lib.BuildConfig;
@@ -13,7 +12,6 @@ import org.metatrans.apps.gravity.model.UserSettings_Gravity;
 import org.metatrans.apps.gravity.model.WorldGenerator_Gravity;
 import org.metatrans.commons.achievements.IAchievementsManager;
 import org.metatrans.commons.app.Application_Base;
-import org.metatrans.commons.cfg.app.IAppConfig;
 import org.metatrans.commons.cfg.colours.ConfigurationUtils_Colours;
 import org.metatrans.commons.cfg.menu.ConfigurationUtils_Base_MenuMain;
 import org.metatrans.commons.engagement.ILeaderboardsProvider;
@@ -30,10 +28,7 @@ import org.metatrans.commons.ui.utils.DebugUtils;
 
 public abstract class Application_Gravity extends Application_2D_Base {
 	
-	
-	protected IAppConfig appConfig 					= new AppConfig_Gravity();
 
-	
 	@Override
 	public void onCreate() {
 
@@ -52,13 +47,7 @@ public abstract class Application_Gravity extends Application_2D_Base {
 
 		BitmapCache_Base.STATIC.initBitmaps();
 	}
-	
-	
-	@Override
-	public IAppConfig getAppConfig() {
-		return appConfig;
-	}
-	
+
 	
 	@Override
 	public void setNextLevel() {
