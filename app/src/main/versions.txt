@@ -1,3 +1,9 @@
+1.0.8 [PAID] (28.12.2022)
+Final compatibility hotfix for existing users - game model version increased and model re-creation re-enforced.
+
+1.1.5 (28.12.2022)
+Final compatibility hotfix for existing users - game model version increased and model re-creation re-enforced.
+
 1.0.7 [PAID] (18.12.2022) 
 Optimizations regarding frames per second (FPS) rate and decreasing even more the app crash rate (bugfixing)
 
