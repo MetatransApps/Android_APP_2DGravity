@@ -40,51 +40,48 @@ public class BitmapCache_Gravity extends BitmapCache_Base {
 		System.out.println("!EXPENSIVE OP: RE-INIT BITMAPS OF THE WORLD");
 
 
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addOriginalSize(
 				BITMAP_ID_BLACKHOLE,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_blackhole_blue_v2));
 
 
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addAsset(
 				BITMAP_ID_ASTEROID_BLUE,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_asteroid_blue_v2));
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addAsset(
 				BITMAP_ID_ASTEROID_GREEN,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_asteroid_green_v2));
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addAsset(
 				BITMAP_ID_ASTEROID_GRAY,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_asteroid_gray_v2));
 
 
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
-				BITMAP_ID_BACKGROUND_PURPLE,
-				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_purple),
-				false);
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
-				BITMAP_ID_BACKGROUND_PING,
-				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_ping),
-				false);
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
-				BITMAP_ID_BACKGROUND_GREEN,
-				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_green),
-				false);
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
-				BITMAP_ID_BACKGROUND_RED,
-				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_red),
-				false);
-
-
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addAsset(
 				BITMAP_ID_ICON_PURPLE,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_icon_purple));
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addAsset(
 				BITMAP_ID_ICON_PING,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_icon_ping));
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addAsset(
 				BITMAP_ID_ICON_GREEN,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_icon_green));
-		STATIC.getInstance_Impl(BITMAP_ID_COMMON).add(
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addAsset(
 				BITMAP_ID_ICON_RED,
 				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_icon_red));
+
+
+		//Backgrounds
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addBackground(
+				BITMAP_ID_BACKGROUND_PURPLE,
+				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_purple));
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addBackground(
+				BITMAP_ID_BACKGROUND_PING,
+				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_ping));
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addBackground(
+				BITMAP_ID_BACKGROUND_GREEN,
+				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_green));
+		STATIC.getInstance_Impl(BITMAP_ID_COMMON).addBackground(
+				BITMAP_ID_BACKGROUND_RED,
+				BitmapUtils.fromResource(Application_Base.getInstance(), R.drawable.gravity_background_red));
 	}
 }

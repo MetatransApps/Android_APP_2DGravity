@@ -133,7 +133,7 @@ public class Activity_Menu_Main extends Activity_Menu_Main_Base {
 		});
 
 
-		result.add(new Config_MenuMain_Base() {
+		/*result.add(new Config_MenuMain_Base() {
 
 			@Override
 			public int getName() {
@@ -171,7 +171,7 @@ public class Activity_Menu_Main extends Activity_Menu_Main_Base {
 					}
 				};
 			}
-		});
+		});*/
 
 
 		result.add(new Config_MenuMain_Base() {
