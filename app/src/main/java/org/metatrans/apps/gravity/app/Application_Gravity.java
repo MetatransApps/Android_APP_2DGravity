@@ -96,7 +96,8 @@ public abstract class Application_Gravity extends Application_2D_Base {
 	
 	@Override
 	protected IEventsManager createEventsManager() {
-		return new EventsManager_Gravity(getExecutor(), getAnalytics(), getAchievementsManager());
+
+		return new EventsManager_Gravity(getExecutor(), getAchievementsManager());
 	}
 	
 	
