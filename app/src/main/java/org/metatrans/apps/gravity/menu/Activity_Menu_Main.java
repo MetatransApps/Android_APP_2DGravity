@@ -20,11 +20,14 @@ public class Activity_Menu_Main extends Activity_Menu_Main_Base {
 
 
 	public static int CFG_MENU_LEVELS			 		= 15;
+
 	public static int CFG_MENU_RESULT			 		= 16;
 	public static int CFG_MENU_ACHIEVEMENTS		 		= 17;
 	public static int CFG_MENU_SPACE_OBJECTS	 		= 27;
 
-	
+	public static int CFG_MENU_STOP_ADS		 			= 29;
+
+
 	@Override
 	protected int getBackgroundImageID() {
 		return 0;
@@ -131,6 +134,45 @@ public class Activity_Menu_Main extends Activity_Menu_Main_Base {
 				};
 			}
 		});
+
+
+		if (!Application_Base.getInstance().getApp_Me().isPaid()) {
+			result.add(new Config_MenuMain_Base() {
+
+				@Override
+				public int getName() {
+					return R.string.new_stopads_title;
+				}
+
+				@Override
+				public int getIconResID() {
+					return R.drawable.ic_action_tv;
+				}
+
+				@Override
+				public int getID() {
+					return CFG_MENU_STOP_ADS;
+				}
+
+				@Override
+				public String getDescription_String() {
+					return getString(R.string.new_stopads_desc);
+				}
+
+				@Override
+				public Runnable getAction() {
+
+					return new Runnable() {
+
+						@Override
+						public void run() {
+
+							Activity_Menu_Main.this.openRewardedVideo();
+						}
+					};
+				}
+			});
+		}
 
 
 		/*result.add(new Config_MenuMain_Base() {
