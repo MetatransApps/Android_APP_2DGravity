@@ -136,7 +136,7 @@ public class Activity_Menu_Main extends Activity_Menu_Main_Base {
 		});
 
 
-		if (!Application_Base.getInstance().getApp_Me().isPaid()) {
+		if (getRewardedVideoName() != null) {
 			result.add(new Config_MenuMain_Base() {
 
 				@Override
