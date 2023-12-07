@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.view.MotionEvent;
 
+import org.metatrans.apps.gravity.lib.R;
 import org.metatrans.apps.gravity.menu.Activity_Menu_Main;
 import org.metatrans.apps.gravity.model.GameData_Gravity;
 import org.metatrans.apps.gravity.model.WorldGenerator_Gravity;
@@ -45,6 +46,7 @@ public class View_Main_Gravity extends View_Main_Base {
 
 	private static final Float ZERO_F 	= 0f;
 
+	private int is_open_sound_stream_id = 0;
 
 	public View_Main_Gravity(Activity_Main_Base2D activity) {
 		
@@ -165,6 +167,9 @@ public class View_Main_Gravity extends View_Main_Base {
 		float y = event.getY(event.getActionIndex());
 		
 		getWorld().setPointer(x, y);
+
+
+		Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_blackhole_opening);
 	}
 	
 	
@@ -181,6 +186,12 @@ public class View_Main_Gravity extends View_Main_Base {
 		float y = event.getY();
 		
 		getWorld().setPointer(x, y);
+
+
+		if (is_open_sound_stream_id == 0) {
+
+			is_open_sound_stream_id = Application_Base.getInstance().getSFXManager().playSound_Repeat(R.raw.sfx_blackhole_is_open);
+		}
 	}
 	
 	
@@ -195,5 +206,12 @@ public class View_Main_Gravity extends View_Main_Base {
 
 		getWorld().setPointer(null, null);
 		//getWorld().setPointer(ZERO_F, ZERO_F);
+
+
+		Application_Base.getInstance().getSFXManager().stopSound(is_open_sound_stream_id);
+
+		is_open_sound_stream_id = 0;
+
+		Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_blackhole_closing);
 	}
 }

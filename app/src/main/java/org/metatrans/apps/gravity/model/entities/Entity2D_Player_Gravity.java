@@ -4,6 +4,7 @@ package org.metatrans.apps.gravity.model.entities;
 import java.util.List;
 
 import org.metatrans.apps.gravity.app.Application_Gravity;
+import org.metatrans.apps.gravity.lib.R;
 import org.metatrans.apps.gravity.main.Activity_Result;
 import org.metatrans.apps.gravity.model.BitmapCache_Gravity;
 import org.metatrans.apps.gravity.model.GameData_Gravity;
@@ -101,6 +102,8 @@ public class Entity2D_Player_Gravity extends Entity2D_Player {
 			
 			Application_Base.getInstance().storeGameData();
 
+			Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_level_completed);
+
 		} else {
 			
 			if (getGameData().count_lives <= 0) {
@@ -108,6 +111,8 @@ public class Entity2D_Player_Gravity extends Entity2D_Player {
 				killedFinal();
 				
 				getGameData().count_lives = 0; //Fix it to 0 instead of -1
+
+				Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_game_over);
 			}
 		}
 	}

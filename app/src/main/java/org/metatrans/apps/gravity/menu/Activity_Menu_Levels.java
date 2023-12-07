@@ -190,7 +190,9 @@ public class Activity_Menu_Levels extends Activity_Base {
 		public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
 			
 			//System.out.println("ColoursSelection POS=" + position + ", id=" + id);
-			
+
+			Application_Base.getInstance().getSFXManager().playSound(org.metatrans.commons.R.raw.sfx_button_pressed_2);
+
 			int currOrderNumber = getConfigurationLevels().getOrderNumber(((Application_Base)getApplication()).getUserSettings().modeID);
 			
 			if (position != currOrderNumber) {

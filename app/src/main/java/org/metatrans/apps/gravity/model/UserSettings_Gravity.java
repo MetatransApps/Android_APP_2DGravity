@@ -4,6 +4,7 @@ package org.metatrans.apps.gravity.model;
 import org.metatrans.apps.gravity.cfg.world.ConfigurationUtils_Level;
 import org.metatrans.apps.gravity.menu.ConfigurationUtils_SpaceObjects;
 import org.metatrans.commons.cfg.colours.IConfigurationColours;
+import org.metatrans.commons.cfg.melody.IConfigurationMelody;
 import org.metatrans.commons.graphics2d.model.UserSettings;
 
 
@@ -30,6 +31,7 @@ public class UserSettings_Gravity extends UserSettings {
 		cfg_id_space_objects 	= ConfigurationUtils_SpaceObjects.START_INDEX;
 		uiColoursID 			= DEFAULT_CFG_ID_COLOUR;
 		modeID 					= ConfigurationUtils_Level.LEVEL_ID_DEFAULT;
+		melody_cfg_id 			= IConfigurationMelody.CFG_MELODY_SPACE_V1;
 	}
 
 

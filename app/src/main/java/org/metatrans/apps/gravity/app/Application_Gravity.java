@@ -5,6 +5,7 @@ import org.metatrans.apps.gravity.achievements.AchievementsManager_Gravity;
 import org.metatrans.apps.gravity.cfg.world.ConfigurationUtils_Level;
 import org.metatrans.apps.gravity.events.EventsManager_Gravity;
 import org.metatrans.apps.gravity.lib.BuildConfig;
+import org.metatrans.apps.gravity.lib.R;
 import org.metatrans.apps.gravity.main.Activity_Result;
 import org.metatrans.apps.gravity.model.BitmapCache_Gravity;
 import org.metatrans.apps.gravity.model.GameData_Gravity;
@@ -33,6 +34,20 @@ public abstract class Application_Gravity extends Application_2D_Base {
 	public void onCreate() {
 
 		ConfigurationUtils_Level.createInstance(this);
+
+		getSFXManager().loadSounds(this,
+				new int[] {
+						org.metatrans.commons.R.raw.sfx_button_pressed_1,
+						org.metatrans.commons.R.raw.sfx_button_pressed_2,
+						org.metatrans.commons.R.raw.sfx_button_pressed_3,
+						R.raw.sfx_new_game,
+						R.raw.sfx_level_completed,
+						R.raw.sfx_game_over,
+						R.raw.sfx_blackhole_opening,
+						R.raw.sfx_blackhole_is_open,
+						R.raw.sfx_blackhole_closing
+				}
+		);
 
 		super.onCreate();
 		//Called when the application is starting, before any other application objects have been created.
@@ -77,7 +92,9 @@ public abstract class Application_Gravity extends Application_2D_Base {
 		result.world = WorldGenerator_Gravity.generate(this, ConfigurationUtils_Level.getInstance().getConfigByID(levelID));
 		
 		result.timestamp_lastborn = System.currentTimeMillis();
-		
+
+		Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_new_game);
+
 		return result;
 	}
 	
