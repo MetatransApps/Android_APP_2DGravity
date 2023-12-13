@@ -23,7 +23,9 @@ import org.metatrans.commons.ui.utils.ScreenUtils;
 
 public class View_Main_Gravity extends View_Main_Base {
 	
-	
+
+	private static float SCALE_TOP_PANEL = 1.25f;
+
 	private Paint default_paint;
 	
 	private RectF rect_level;
@@ -46,7 +48,7 @@ public class View_Main_Gravity extends View_Main_Base {
 
 	private static final Float ZERO_F 	= 0f;
 
-	private int is_open_sound_stream_id = 0;
+	private int is_open_sound_stream_id = -1;
 
 	public View_Main_Gravity(Activity_Main_Base2D activity) {
 		
@@ -162,14 +164,16 @@ public class View_Main_Gravity extends View_Main_Base {
 		if (!Application_2D_Base.getInstance().isCurrentlyGameActiveIntoTheMainScreen()) {
 			return;
 		}
-		
+
 		float x = event.getX(event.getActionIndex());
 		float y = event.getY(event.getActionIndex());
-		
-		getWorld().setPointer(x, y);
 
+		if (y > rect_level.height() * SCALE_TOP_PANEL) {
 
-		Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_blackhole_opening);
+			getWorld().setPointer(x, y);
+
+			Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_blackhole_opening);
+		}
 	}
 	
 	
@@ -184,13 +188,15 @@ public class View_Main_Gravity extends View_Main_Base {
 		
 		float x = event.getX();
 		float y = event.getY();
-		
-		getWorld().setPointer(x, y);
 
+		if (y > rect_level.height() * SCALE_TOP_PANEL) {
 
-		if (is_open_sound_stream_id == 0) {
+			getWorld().setPointer(x, y);
 
-			is_open_sound_stream_id = Application_Base.getInstance().getSFXManager().playSound_Repeat(R.raw.sfx_blackhole_is_open);
+			if (is_open_sound_stream_id == -1) {
+
+				is_open_sound_stream_id = Application_Base.getInstance().getSFXManager().playSound_Repeat(R.raw.sfx_blackhole_is_open);
+			}
 		}
 	}
 	
@@ -199,19 +205,23 @@ public class View_Main_Gravity extends View_Main_Base {
 	protected void processEvent_UP(MotionEvent event) {
 		
 		super.processEvent_UP(event);
-		
-		if (!Application_2D_Base.getInstance().isCurrentlyGameActiveIntoTheMainScreen()) {
-			return;
-		}
 
 		getWorld().setPointer(null, null);
 		//getWorld().setPointer(ZERO_F, ZERO_F);
 
+		//float x = event.getX();
+		//float y = event.getY();
 
-		Application_Base.getInstance().getSFXManager().stopSound(is_open_sound_stream_id);
+		if (is_open_sound_stream_id != -1 /*y > rect_level.height() * SCALE_TOP_PANEL*/) {
 
-		is_open_sound_stream_id = 0;
+			Application_Base.getInstance().getSFXManager().stopSound(is_open_sound_stream_id);
 
-		Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_blackhole_closing);
+			is_open_sound_stream_id = -1;
+
+			if (Application_2D_Base.getInstance().isCurrentlyGameActiveIntoTheMainScreen()) {
+
+				Application_Base.getInstance().getSFXManager().playSound(R.raw.sfx_blackhole_closing);
+			}
+		}
 	}
 }
