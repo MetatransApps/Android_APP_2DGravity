@@ -35,7 +35,7 @@ public class WorldGenerator_Gravity {
 
 		float spaceScaleFactor = cfg.getSpaceMultiplier();
 		
-		int[] screen_size = ScreenUtils.getScreenSize(activity);
+		int[] screen_size = ScreenUtils.getScreenSize();
 		int main_width = 1 * Math.max(screen_size[0], screen_size[1]);
 		int main_height = 1 * Math.min(screen_size[0], screen_size[1]);
 		
