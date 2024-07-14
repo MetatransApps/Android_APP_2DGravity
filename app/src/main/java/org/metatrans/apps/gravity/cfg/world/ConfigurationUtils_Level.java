@@ -27,7 +27,7 @@ public class ConfigurationUtils_Level extends ConfigurationUtils_Base {
 		
 		IConfigurationEntry[] cfgs_levels = new IConfigurationEntry[14];
 		
-		int[] size_xy 	= ScreenUtils.getScreenSize();
+		int[] size_xy 	= new int[] {2047, 1080}; //ScreenUtils.getScreenSize(); NPE
 		float speed 	= Math.min(size_xy[0], size_xy[1]) / 50;
 		
 		for (int i=0; i<cfgs_levels.length; i++) {
