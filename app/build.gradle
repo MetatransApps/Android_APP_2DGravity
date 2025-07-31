@@ -3,6 +3,9 @@ plugins {
 }
 
 android {
+
+    namespace "org.metatrans.apps.gravity.lib"
+
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
