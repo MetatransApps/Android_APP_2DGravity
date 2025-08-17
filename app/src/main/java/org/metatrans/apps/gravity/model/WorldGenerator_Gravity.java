@@ -69,7 +69,7 @@ public class WorldGenerator_Gravity {
 					new Entity2D_Challenger_Gravity(
 							world,
 							rect,
-							world.getGroundEntities(),
+							world.getGroundEntities_SolidOnly(),
 							world.getKillersEntities_forChallengers(),
 							world.getMovingEntities(),
 							mass,
